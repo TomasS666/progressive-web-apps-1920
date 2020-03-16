@@ -1,0 +1,86 @@
+const path = require('path')
+const render = require('../static-generator/render')
+const hasImage = require('../helpers/hasImage')
+const getData = require('../helpers/getData')
+const genreIdList = require("../helpers/genreIdList")
+
+
+function getGenres(){
+    // return (Promise.all(genreIdList.map((genre) =>{
+    //    return getData("discover/movie", `with_genres=${genre.id}`)
+    // })))
+
+    const test = genreIdList.map(async (genre) =>{
+        return {
+            name: genre.name,
+            data: await getData("discover/movie", `with_genres=${genre.id}`)
+        }
+    })
+
+    // console.log(test)
+
+    return Promise.all(test);
+
+
+
+
+    // return Promise.all(genreIdList.map((genre) =>{
+    //     return getData("discover/movie", `with_genres=${genre.id}`)
+    //  }))
+}
+
+function renderPage(){
+    getGenres()
+ 
+    // .then(objects => {
+    //     // console.log(data)
+     
+    //     const json = objects.map(async (obj) => {
+    //         return {
+    //             name: obj.name,
+    //             data: await obj.data.json()
+    //         }
+    //     })
+
+    //     // console.log(Promise.all(json))
+
+
+    //     return Promise.all(json)
+    // })
+    .then(data => {
+        // console.log("Dewdwfwefwefwefwfewef", data)
+        // console.log("Data: ", data)
+
+       return (data.map(genre =>{
+        // console.log(genre)
+            genre.data.results.map(movie =>{
+                movie.slug = movie.title.replace(/\s+/g, '-').toLowerCase();
+                hasImage(movie)
+                return movie;
+            })
+            return genre
+        }))
+
+        // return data;
+    })
+
+    .then(genre =>{
+
+        // console.log("Genres: " + genre[0].data.results[0].slug)
+
+        // res.render("overview.ejs", {
+        //     data:genre,
+        //     form: genreIdList
+        // }) 
+
+        render({
+            data:genre,
+            form: genreIdList
+        })
+    })
+}
+
+renderPage()
+
+
+module.exports = renderPage;

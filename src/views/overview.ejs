@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('components/head.ejs') %>
+
+<body>
+    <%- include('components/header.ejs') %>
+    <main id="content">
+
+        <% data.forEach((genre)=> { %>
+            
+        <section class="overview-section" data-genre-name="<%= genre.name %>">
+            <h2><%= genre.name %></h2>
+            <div class="wrapper">
+                
+            <% 
+                genre.data.results.forEach((movie, i)=> { 
+                    if(i < 4){
+            %>
+            
+                <a href="movie/<%= movie.id%>/<%= movie.slug %>">
+                    <article class="loading">
+                        <h3><%= movie.title %></h3>
+                        <img src="<%= movie.poster_path %>" alt="<%= movie.title %>">
+                        <div data-ui="rating"><%= movie.vote_average %></div>
+                    </article>
+                </a>
+
+            <%}})%>   
+        </div>
+        <form action="">
+            <button>></button>
+        </form>
+    </section>
+    <%})%>   
+
+
+        
+
+
+    </main>
+    <footer>
+        <p>This product uses the TMDb API but is not endorsed or certified by TMDb.</p> <img
+            src="/images/the-movie-db-logo.cb5571ba.png" alt="">
+    </footer>
+</body>
+
+</html>

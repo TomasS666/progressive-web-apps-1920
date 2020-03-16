@@ -1,0 +1,44 @@
+<header> 
+    
+    <noscript>
+        <style>
+            .wrapper article.loading img{
+                animation: none;
+            }
+        </style>
+    </noscript>
+    <p class="disclaimer">This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <form data-search-movie method="GET" action="/search">
+        <input type="hidden" name="page" value="1">
+        <label for="query">Search term</label>
+        <input type="text" id="query" name="query" placeholder="Search for a movie..." required>
+        <!-- <fieldset> -->
+            <legend>Filter:</legend>
+      
+        <label for="genres">
+            Genres
+        </label>
+        <select id="genres" name="genre">
+            <option disabled selected>Select a genre</option>
+            <option>None</option>
+            <% if(typeof form != 'undefined'){ 
+                form.forEach(genre =>{ 
+            %>
+                <option value="<%= genre.id %>"><%= genre.name %></option>
+            <% })}%>
+        </select>
+       
+            
+    <!-- </fieldset> -->
+           
+        <button>Search</button>
+    </form>
+</header>
