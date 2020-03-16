@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "prestart": "node src/static-generator/render-overview.js ",
-    "start":"node server.js"
+    "start":"node src/server.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
