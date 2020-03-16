@@ -18,13 +18,15 @@
                     if(i < 4){
             %>
             
-                <a href="movie/<%= movie.id%>/<%= movie.slug %>">
+                
                     <article class="loading">
                         <h3><%= movie.title %></h3>
-                        <img src="<%= movie.poster_path %>" alt="<%= movie.title %>">
+                        <a href="movie/<%= movie.id%>/<%= movie.slug %>">
+                            <img src="<%= movie.poster_path %>" alt="<%= movie.title %>">
+                        </a>
                         <div data-ui="rating"><%= movie.vote_average %></div>
                     </article>
-                </a>
+               
 
             <%}})%>   
         </div>

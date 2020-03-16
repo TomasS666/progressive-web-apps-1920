@@ -17,13 +17,17 @@
            
         <% data.forEach((movie)=> { %>
             
-                <a href="movie/<%= movie.id%>/<%= movie.title.replace(/\s+/g, '-').toLowerCase(); %>">
+                
                     <article class="loading">
+                        
                         <h3><%= movie.title %></h3>
+                        <a href="movie/<%= movie.id%>/<%= movie.title.replace(/\s+/g, '-').toLowerCase(); %>">
                         <img src="<%= movie.poster_path %>" alt="<%= movie.title %>">
+                    </a>
                         <div data-ui="rating"><%= movie.vote_average %></div>
+                  
                     </article>
-                </a>
+              
 
             <%})%>   
         </div>
