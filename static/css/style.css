@@ -88,6 +88,7 @@ header form input:valid ~ button{
   box-shadow: .2rem .2rem .4rem #2a2a2a;
   opacity: 1;
   cursor: pointer;
+  color: #000;
 }
 
 header form button{
@@ -96,9 +97,10 @@ header form button{
   background-color: var(--white); 
   text-decoration: none;
   font-weight: bold;
-  color: black;
-  opacity: .3;
+  color: rgba(0, 0, 0, 0.8);
+  /* opacity: .3; */
   cursor: not-allowed;
+  border:none;
 }
 
 
@@ -272,7 +274,7 @@ form{
   color: #000;
   border: none;
   background-color: #ffffff;
-  font-size: 5rem;s
+  font-size: 5rem;
 }
 
 @keyframes test{
