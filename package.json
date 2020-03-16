@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "prestart": "node src/static-generator/render-overview.js ",
     "start":"node server.js"
   },
   "dependencies": {
