@@ -16,8 +16,28 @@
         </ul>
     </nav>
     
-    <form data-search-movie method="POST" action="/search">
-        <input type="text" name="searchValue" placeholder="Search for a movie..." required>
+    <form data-search-movie method="GET" action="/search">
+        <input type="hidden" name="page" value="1">
+        <input type="text" name="query" placeholder="Search for a movie..." required>
+        <!-- <fieldset> -->
+            <legend>Filter:</legend>
+      
+        <label for="genres">
+            Genres
+        </label>
+        <select id="genres" name="genre">
+            <option disabled selected>Select a genre</option>
+            <option>None</option>
+            <% if(typeof form != 'undefined'){ 
+                form.forEach(genre =>{ 
+            %>
+                <option value="<%= genre.id %>"><%= genre.name %></option>
+            <% })}%>
+        </select>
+       
+            
+    <!-- </fieldset> -->
+           
         <button>Search</button>
     </form>
 </header>

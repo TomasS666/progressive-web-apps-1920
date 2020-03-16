@@ -21,7 +21,7 @@
                 <a href="movie/<%= movie.id%>/<%= movie.slug %>">
                     <article class="loading">
                         <h3><%= movie.title %></h3>
-                        <img src="https://image.tmdb.org/t/p/w342/<%= movie.poster_path %>" alt="<%= movie.title %>">
+                        <img src="<%= movie.poster_path %>" alt="<%= movie.title %>">
                         <div data-ui="rating"><%= movie.vote_average %></div>
                     </article>
                 </a>

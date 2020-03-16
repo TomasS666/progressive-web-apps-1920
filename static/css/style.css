@@ -4,7 +4,7 @@
   --grey: #383838;
 }
 
-body{
+html, body{
   font-family: sans-serif;
   background-color: var(--grey, #383838);
   color: #fff;
@@ -21,6 +21,14 @@ body{
 
 .disclaimer{
   text-align: center;
+}
+
+.inactive{
+  cursor: not-allowed;
+}
+
+.active{
+  cursor: auto;
 }
 
 header nav{
@@ -76,7 +84,7 @@ header form input:focus{
   transition: .3s;
 }
 
-header form input:valid ~ a{
+header form input:valid ~ button{
   box-shadow: .2rem .2rem .4rem #2a2a2a;
   opacity: 1;
   cursor: pointer;
@@ -121,6 +129,8 @@ header form button{
 .wrapper article img{
   width: 100%;
 }
+
+
 
 /* .wrapper article::after{
   content: '';

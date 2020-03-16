@@ -6,7 +6,13 @@
 <body>
     <%- include('components/header.ejs') %>
     <main id="content">
-        <h2>Results:</h2>
+        <h2>Results: <%= query.query %></h2>
+        <nav>
+            <!-- <a href="<%= query.url %>">Next</a> -->
+            Page <%= query.page %> of <%= meta %>
+            <a href="<%= prevPage  %>" class="<%= query.page == 1 ? 'inactive': 'active'%>">Previous</a>
+            <a href="<%= nextPage  %>" class="<%= query.page >= meta ? 'inactive': 'active'%>">Next</a>
+        </nav>
         <div class="wrapper">
            
         <% data.forEach((movie)=> { %>
@@ -21,11 +27,6 @@
 
             <%})%>   
         </div>
-
-
-
-        
-
 
     </main>
     <footer>

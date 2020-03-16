@@ -3,6 +3,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link rel="manifest" href="/manifest-webmanifest.json">
+    <meta name="Description" content="Search for movies and get additional information on movies in this progressive webapp">
     <script src="/js/index.js" defer></script>
+    <script defer> 
+        if('serviceWorker' in navigator) {
+          navigator.serviceWorker
+            .register('/sw.js')
+            .then(function(){
+              console.log("Service worker is registered")
+            })
+        }
+      </script>
     <title>WAFS - Movies</title>
 </head>
