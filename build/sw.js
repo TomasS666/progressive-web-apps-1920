@@ -1,5 +1,6 @@
 const filesToCache = [
     '/',
+    '/overview.html',
     '/css/style.css',
     '/js/index.js',
     '/images/the-movie-db-logo.cb5571ba.png',
