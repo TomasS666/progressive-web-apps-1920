@@ -196,7 +196,7 @@ header form button{
 
 .wrapper a{
   text-decoration: none;
-  padding: 1rem 0;
+  /* padding: 1rem 0; */
 }
 
 .wrapper article.loading img{
