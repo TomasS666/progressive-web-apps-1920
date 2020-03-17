@@ -14,6 +14,7 @@ function imageComplete(imgs){
 
 window.onload = function() {
 
+    if(document.querySelector('button.share')){
     const shareData = {
         title: 'MDN',
         text: 'Learn web development on MDN!',
@@ -32,7 +33,7 @@ window.onload = function() {
             console.log(err)
         }
       });
-    
+    }
 };
 
 
