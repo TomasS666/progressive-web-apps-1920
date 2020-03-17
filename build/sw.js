@@ -1,6 +1,12 @@
-const filesToCache = [
-    '/',
-    '/index.html',
+// https://github.com/decrek/progressive-web-apps-1920/blob/master/examples/movies-example/src/service-worker.js
+// Used as example. Understand everything now, soon I'll add more of my own flavour or even a different caching technique
+// Author: Declan 
+// I made use of the functions Declan wrote: fetch and cache, is htmlgetrequest and iscoregetrequest
+
+
+const CORE_CACHE_VERSION = "pwa-v1"
+const CORE_ASSETS = [
+    '/offline',
     '/css/style.css',
     '/js/index.js',
     '/images/the-movie-db-logo.cb5571ba.png',
@@ -11,22 +17,75 @@ const filesToCache = [
 ];
 
 
-self.addEventListener('install', function(e) {
-    // console.log(e)
-    e.waitUntil(
-      caches.open('pwa-cache').then(function(cache) {
-        return cache.addAll(filesToCache);
-      })
-    );
-   });
+self.addEventListener('install', event => {
+  console.log('Installing service worker')
 
-
-self.addEventListener('fetch', function(event) {
-    // console.log(event.request.url);
-
-    event.respondWith(
-        caches.match(event.request).then(function(response) {
-          return response || fetch(event.request);
-        })
-      );
+  event.waitUntil(
+    caches.open(CORE_CACHE_VERSION).then(function(cache) {
+      return cache.addAll(CORE_ASSETS).then(() => self.skipWaiting());
+    })
+  );
 });
+
+
+
+self.addEventListener('fetch', event => {
+  console.log('Fetch event: ', event.request.url);
+  if (isCoreGetRequest(event.request)) {
+    console.log('Core get request: ', event.request.url);
+    // cache only strategy
+    event.respondWith(
+      caches.open(CORE_CACHE_VERSION)
+        .then(cache => cache.match(event.request.url))
+    )
+  } else if (isHtmlGetRequest(event.request)) {
+    console.log('html get request', event.request.url)
+    // generic fallback
+    event.respondWith(
+
+      caches.open(CORE_CACHE_VERSION)
+        .then(cache => cache.match(event.request.url))
+        .then(response => response ? response : fetchAndCache(event.request, CORE_CACHE_VERSION))
+        .catch(e => {
+          return caches.open(CORE_CACHE_VERSION)
+            .then(cache => cache.match('/offline'))
+        })
+    )
+  }
+});
+
+function fetchAndCache(request, cacheName) {
+  return fetch(request)
+    .then(response => {
+      if (!response.ok) {
+        throw new TypeError('Bad response status');
+      }
+
+      const clone = response.clone()
+      caches.open(cacheName).then((cache) => cache.put(request, clone))
+      return response
+    })
+}
+
+
+function isHtmlGetRequest(request) {
+  return request.method === 'GET' && (request.headers.get('accept') !== null && request.headers.get('accept').indexOf('text/html') > -1);
+}
+
+
+function isCoreGetRequest(request) {
+  return request.method === 'GET' && CORE_ASSETS.includes(getPathName(request.url));
+}
+
+
+function getPathName(requestUrl) {
+  const url = new URL(requestUrl);
+  return url.pathname;
+}
+
+
+
+// https://github.com/decrek/progressive-web-apps-1920/blob/master/examples/movies-example/src/service-worker.js
+// Used as example. Understand everything now, soon I'll add more of my own flavour or even a different caching technique
+// Author: Declan 
+// I made use of the functions Declan wrote: fetch and cache, is htmlgetrequest and iscoregetrequest

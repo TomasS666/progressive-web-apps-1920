@@ -15,5 +15,5 @@
             })
         }
       </script>
-    <title>WAFS - Movies</title>
+    <title><% if(typeof movie != "undefined"){ %><%= movie.title %><% } else{%> WAFS - Movies  <% } %></title>
 </head>

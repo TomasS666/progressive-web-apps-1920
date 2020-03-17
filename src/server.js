@@ -8,6 +8,7 @@ const port = process.env.PORT || 8080
 
 const overview = require('./routes/overview.js')
 const detail = require('./routes/detail.js')
+const offline = require('./routes/offline.js')
 
 const search = require('./routes/search.js')
 
@@ -25,9 +26,7 @@ app
 
     
     .use(express.static(path.join(__dirname, '../build')))
-    // .use('/', ()=>{
-    //     console.log(path.join(__dirname, 'static'))
-    // })
+    .use('/', offline)
     .use('/', overview)
     .use('/', detail)
     .use('/', search)
