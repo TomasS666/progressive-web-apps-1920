@@ -44,22 +44,35 @@
 
 <script>
  
-    const shareData = {
-        title: 'MDN',
-        url: 'https://pwa-tomas.herokuapp.com/movie/454626/sonic-the-hedgehog',
-      }
+    // const shareData = {
+    //     title: 'MDN',
+    //     url: 'https://pwa-tomas.herokuapp.com/movie/454626/sonic-the-hedgehog',
+    //   }
       
       const btn = document.querySelector('button.share');
       const resultPara = document.querySelector('.result');
 
       btn.addEventListener('click', () => {
-        navigator.share(shareData)
-          .then(() =>
-            resultPara.textContent = 'MDN shared successfully'
-          )
-          .catch((e) =>
-            resultPara.textContent = 'Error: ' + e
-          )
+        const title = window.document.title;
+        const url = window.document.location.href;
+
+        if(navigator.share){
+            navigator.share({title: `${title}`, url: `${url}`}).then(() => {
+                console.log('nice');
+            })
+        }
+        else{
+            //fallback share
+            console.log('geen support web api share');
+        }
+
+        // navigator.share(shareData)
+        //   .then(() =>
+        //     resultPara.textContent = 'MDN shared successfully'
+        //   )
+        //   .catch((e) =>
+        //     resultPara.textContent = 'Error: ' + e
+        //   )
       });
     
 </script>
