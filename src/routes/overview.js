@@ -36,71 +36,71 @@ const genreIdList = require("../helpers/genreIdList")
 //     //  }))
 // }
 
-// router.get('/', (req, res)=>{
+router.get('/', (req, res)=>{
 
   
    
 
-// //         getGenres()
+//         getGenres()
  
-// //         // .then(objects => {
-// //         //     // console.log(data)
+//         // .then(objects => {
+//         //     // console.log(data)
          
-// //         //     const json = objects.map(async (obj) => {
-// //         //         return {
-// //         //             name: obj.name,
-// //         //             data: await obj.data.json()
-// //         //         }
-// //         //     })
+//         //     const json = objects.map(async (obj) => {
+//         //         return {
+//         //             name: obj.name,
+//         //             data: await obj.data.json()
+//         //         }
+//         //     })
 
-// //         //     // console.log(Promise.all(json))
+//         //     // console.log(Promise.all(json))
 
 
-// //         //     return Promise.all(json)
-// //         // })
-// //         .then(data => {
-// //             // console.log("Dewdwfwefwefwefwfewef", data)
-// //             // console.log("Data: ", data)
+//         //     return Promise.all(json)
+//         // })
+//         .then(data => {
+//             // console.log("Dewdwfwefwefwefwfewef", data)
+//             // console.log("Data: ", data)
 
-// //            return (data.map(genre =>{
+//            return (data.map(genre =>{
                
-// //                 genre.data.results.map(movie =>{
-// //                     movie.slug = movie.title.replace(/\s+/g, '-').toLowerCase();
-// //                     hasImage(movie)
-// //                     return movie;
-// //                 })
-// //                 return genre
-// //             }))
+//                 genre.data.results.map(movie =>{
+//                     movie.slug = movie.title.replace(/\s+/g, '-').toLowerCase();
+//                     hasImage(movie)
+//                     return movie;
+//                 })
+//                 return genre
+//             }))
 
-// //             // return data;
-// //         })
+//             // return data;
+//         })
 
-// //         .then(genre =>{
+//         .then(genre =>{
 
-// //             // console.log("Genres: " + genre[0].data.results[0].slug)
+//             // console.log("Genres: " + genre[0].data.results[0].slug)
 
-// //             // res.render("overview.ejs", {
-// //             //     data:genre,
-// //             //     form: genreIdList
-// //             // }) 
+//             // res.render("overview.ejs", {
+//             //     data:genre,
+//             //     form: genreIdList
+//             // }) 
 
-// //             render({
-// //                 data:genre,
-// //                 form: genreIdList
-// //             }).then(html => {
-// //                 res.sendFile(path.resolve(__dirname,'../static-generator/html/overview.html'))
-// //             })
-// //         })
+//             render({
+//                 data:genre,
+//                 form: genreIdList
+//             }).then(html => {
+//                 res.sendFile(path.resolve(__dirname,'../static-generator/html/overview.html'))
+//             })
+//         })
 
         
 
-// //     // res.render("overview.ejs", {
-// //     //                 data:data.results
-// //     //             })
-//     res.sendFile(path.resolve(__dirname,'../../build/index.html'))
-// // res.send('hwef')
+//     // res.render("overview.ejs", {
+//     //                 data:data.results
+//     //             })
+    res.sendFile(path.resolve(__dirname,'../../build/index.html'))
+// res.send('hwef')
     
-// })
+})
 
 
 
