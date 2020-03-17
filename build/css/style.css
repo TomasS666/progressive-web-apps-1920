@@ -107,7 +107,8 @@ header form button{
 .wrapper{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(14rem, 23%));
-  grid-template-rows: repeat(auto-fill, minmax(40rem, 40rem));
+  /* Minmax 38 vw instead of vh for a reason  */
+  grid-template-rows: repeat(auto-fill, minmax(38vw, 100%));
 
   justify-content: center;
   position: relative;
@@ -122,8 +123,8 @@ header form button{
   transition: all .3s;
   transform-origin: center;
   box-shadow: 0.1rem 0.1rem 0.4rem #121212;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   color: var(--white);
   position: relative;
 }
@@ -315,7 +316,7 @@ footer{
 @media screen and (max-width: 83.375em){
 
   .overview-section{
-    padding: 1rem;
+    padding: 1rem 0;
   }
   
   .wrapper{
@@ -342,6 +343,7 @@ footer{
     flex: 0 0 auto;
     margin: 0 .75rem;
     max-width: 22rem;
+    min-height: 38rem;
   }
   
   .wrapper article:first-of-type{
