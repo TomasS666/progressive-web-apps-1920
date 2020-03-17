@@ -28,7 +28,7 @@ app
     // .use('/', ()=>{
     //     console.log(path.join(__dirname, 'static'))
     // })
-    // .use('/', overview)
+    .use('/', overview)
     .use('/', detail)
     .use('/', search)
 
