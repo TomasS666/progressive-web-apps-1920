@@ -3,6 +3,7 @@ const fs   = require('fs');
 const path = require("path");
 
 
+
 async function render(data){
     // const template = fs.readFileSync(path.resolve(__dirname,'../views/detail-page.ejs'),  'utf-8')
 

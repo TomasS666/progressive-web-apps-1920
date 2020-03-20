@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "testargs": "node src/static-generator/test.js",
     "prestart": "node src/static-generator/render-overview.js ",
     "start":"node src/server.js"
   },
