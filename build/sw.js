@@ -1,6 +1,6 @@
 // https://github.com/decrek/progressive-web-apps-1920/blob/master/examples/movies-example/src/service-worker.js
 // Used as example. Understand everything now, soon I'll add more of my own flavour or even a different caching technique
-// Author: Declan 
+// Author: Declan Rek
 // I made use of the functions Declan wrote: fetch and cache, is htmlgetrequest and iscoregetrequest
 
 
@@ -31,6 +31,7 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
   console.log('Fetch event: ', event.request.url);
+  
   if (isCoreGetRequest(event.request)) {
     console.log('Core get request: ', event.request.url);
     // cache only strategy
@@ -87,5 +88,5 @@ function getPathName(requestUrl) {
 
 // https://github.com/decrek/progressive-web-apps-1920/blob/master/examples/movies-example/src/service-worker.js
 // Used as example. Understand everything now, soon I'll add more of my own flavour or even a different caching technique
-// Author: Declan 
+// Author: Declan Rek
 // I made use of the functions Declan wrote: fetch and cache, is htmlgetrequest and iscoregetrequest

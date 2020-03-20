@@ -12,7 +12,38 @@ function imageComplete(imgs){
     })
 }
 
+// self.addEventListener("beforeinstallprompt", function(e) {
+    
+//     if(window.location.href != 'http://localhost:8080/'){
+//         e.prompt()
+//     }else{
+//         e.preventDefault()
+//     }
 
+// })
+
+
+window.addEventListener('beforeinstallprompt', e => {
+    e.preventDefault()
+    deferredPrompt = e
+  })
+  
+  const btnInstallApp = document.getElementById('btn-install-app')
+  
+  if(btnInstallApp) {
+    btnInstallApp.addEventListener('click', e => {
+      deferredPrompt.prompt()
+      deferredPrompt.userChoice
+        .then(choiceResult => {
+          if(choiceResult.outcome === 'accepted') {
+            console.log('user accepted A2HS prompt')
+          } else {
+            console.log('user dismissed A2HS prompt')
+          }
+          deferredPrompt = null
+        })
+      })
+  }
 
 if(document.querySelector('button.share')){
     if(navigator.share){
