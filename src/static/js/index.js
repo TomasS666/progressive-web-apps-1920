@@ -1,6 +1,6 @@
+// import {sw_init} from './sw.js'
 
-
-
+// sw_init()
 
 // imageComplete()
 

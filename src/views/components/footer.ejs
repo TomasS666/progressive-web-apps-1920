@@ -7,12 +7,41 @@
     if('serviceWorker' in navigator) {
       navigator.serviceWorker
         .register('/sw.js')
-        .then(function(){
+        .then(function(reg){
           console.log("Service worker is registered")
+
+
+        reg.addEventListener('updatefound', () => {
+            newWorker = reg.installing;                 
+            newWorker.addEventListener('statechange', () => {
+              switch (newWorker.state) {
+                case 'installed':
+                  if (navigator.serviceWorker.controller) {
+                                      Notification.requestPermission(function(status) {
+                    console.log('Notification permission status:', status);
+                  });
+
+
+                  function displayNotification() {
+                    if (Notification.permission == 'granted') {
+                      navigator.serviceWorker.getRegistration().then(function(reg) {
+                        reg.showNotification('Hello world!');
+                      });
+                    }
+                  }
+
+displayNotification()
+                  }
+                  break;
+              }
+            })
+          })
+        }).catch((err) => {
+          console.log("Registration failed: " + err)
         })
     }
   </script>
-  <script defer src="/js/index.js"></script>
+  <script defer src="/index.js"></script>
 
 </body>
 </html>

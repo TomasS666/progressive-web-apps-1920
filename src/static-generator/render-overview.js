@@ -63,7 +63,7 @@ function renderPage(){
             data:genre,
             form: genreIdList
         })
-    })
+    }).catch(err => console.log(err))
 }
 
 renderPage()
