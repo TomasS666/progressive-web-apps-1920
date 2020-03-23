@@ -1,7 +1,7 @@
-imageComplete()
+// imageComplete()
 
 
-function imageComplete(imgs){
+// function imageComplete(imgs){
     document.querySelectorAll("article.loading").forEach(node =>{
 
         node.querySelector("article a img").addEventListener("load",  ()=> {
@@ -11,7 +11,7 @@ function imageComplete(imgs){
         })
         
     })
-}
+// }
 
 // self.addEventListener("beforeinstallprompt", function(e) {
     
