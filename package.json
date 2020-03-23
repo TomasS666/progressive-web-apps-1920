@@ -7,7 +7,7 @@
     "prebuild": "node src/static-generator/render-overview.js",
     "build": "webpack",
     "prestart": "node src/static-generator/render-overview.js",
-    "start": "./node_modules/.bin/webpack-dev-server --hot --inline --progress"
+    "start": "node src/server.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
