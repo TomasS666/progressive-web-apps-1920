@@ -21,12 +21,6 @@ function getGenres(){
 
     return Promise.all(test);
 
-
-
-
-    // return Promise.all(genreIdList.map((genre) =>{
-    //     return getData("discover/movie", `with_genres=${genre.id}`)
-    //  }))
 }
 
 function renderPage(){
@@ -65,14 +59,6 @@ function renderPage(){
     })
 
     .then(genre =>{
-
-        // console.log("Genres: " + genre[0].data.results[0].slug)
-
-        // res.render("overview.ejs", {
-        //     data:genre,
-        //     form: genreIdList
-        // }) 
-
         render({
             data:genre,
             form: genreIdList

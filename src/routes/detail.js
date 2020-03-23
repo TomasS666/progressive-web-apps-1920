@@ -24,7 +24,7 @@ console.log("hallo")
     // getData(`movie/${req.params.id}`)
     Promise.all([
         getData(`movie/${req.params.id}`),
-        getData(`movie/${req.params.id}/videos`),
+        getData(`movie/${req.params.id}/videos`)
     ])
         // .then(json =>{
         //     return cleanObjects(json.results, ["id", "title", "poster_path", "vote_average", "overview"]);
