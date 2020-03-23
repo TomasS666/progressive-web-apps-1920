@@ -4,8 +4,9 @@ imageComplete()
 function imageComplete(imgs){
     document.querySelectorAll("article.loading").forEach(node =>{
 
-        node.querySelector("a img").addEventListener("load",  ()=> {
-            node.classList.remove("loading") 
+        node.querySelector("article a img").addEventListener("load",  ()=> {
+            // node.classList.remove("loading") 
+            node.removeAttribute("class")
             // node.querySelector("a img").removeEventListener("load", () => )
         })
         

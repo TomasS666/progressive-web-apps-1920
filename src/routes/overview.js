@@ -36,7 +36,7 @@ const genreIdList = require("../helpers/genreIdList")
 //     //  }))
 // }
 
-router.get('/', (req, res)=>{
+router.get('/', (req, res, next)=>{
 
   
    
@@ -97,6 +97,8 @@ router.get('/', (req, res)=>{
 //     // res.render("overview.ejs", {
 //     //                 data:data.results
 //     //             })
+    // res.setHeader("Cache-Control", "max-age=" + 360 * 24 * 60 * 60)
+    // // next()
     res.sendFile(path.resolve(__dirname,'../../build/index.html'))
 // res.send('hwef')
     

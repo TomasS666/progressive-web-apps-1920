@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -5,15 +7,5 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     <link rel="manifest" href="/manifest-webmanifest.json">
     <meta name="Description" content="Search for movies and get additional information on movies in this progressive webapp">
-    <script src="/js/index.js" defer></script>
-    <script defer> 
-        if('serviceWorker' in navigator) {
-          navigator.serviceWorker
-            .register('/sw.js')
-            .then(function(){
-              console.log("Service worker is registered")
-            })
-        }
-      </script>
     <title><% if(typeof movie != "undefined"){ %><%= movie.title %><% } else{%> WAFS - Movies  <% } %></title>
 </head>

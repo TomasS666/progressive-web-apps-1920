@@ -18,11 +18,13 @@ const CORE_ASSETS = [
 
 
 self.addEventListener('install', event => {
-  console.log('Installing service worker')
+  console.log('Installing sw')
 
   event.waitUntil(
     caches.open(CORE_CACHE_VERSION).then(function(cache) {
-      return cache.addAll(CORE_ASSETS).then(() => self.skipWaiting());
+      return cache.addAll(CORE_ASSETS)
+      // Disable skipwaiting, create popup or push notification for update and then trigger it
+        .then(() => self.skipWaiting());
     })
   );
 });
@@ -30,10 +32,10 @@ self.addEventListener('install', event => {
 
 
 self.addEventListener('fetch', event => {
-  console.log('Fetch event: ', event.request.url);
+  console.log('Fetch: ', event.request.url);
   
   if (isCoreGetRequest(event.request)) {
-    console.log('Core get request: ', event.request.url);
+    console.log('Core get req: ', event.request.url);
     // cache only strategy
     event.respondWith(
       caches.open(CORE_CACHE_VERSION)
@@ -43,11 +45,11 @@ self.addEventListener('fetch', event => {
     console.log('html get request', event.request.url)
     // generic fallback
     event.respondWith(
-
       caches.open(CORE_CACHE_VERSION)
         .then(cache => cache.match(event.request.url))
         .then(response => response ? response : fetchAndCache(event.request, CORE_CACHE_VERSION))
         .catch(e => {
+          console.log('Ben ik offline?')
           return caches.open(CORE_CACHE_VERSION)
             .then(cache => cache.match('/offline'))
         })
@@ -61,12 +63,12 @@ function fetchAndCache(request, cacheName) {
       if (!response.ok) {
         throw new TypeError('Bad response status');
       }
-
       const clone = response.clone()
       caches.open(cacheName).then((cache) => cache.put(request, clone))
       return response
     })
 }
+
 
 
 function isHtmlGetRequest(request) {
