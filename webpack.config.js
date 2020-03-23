@@ -1,15 +1,15 @@
 const path = require('path');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
 
 module.exports = {
 //   context: path.resolve(__dirname, 'src/static/js/'),
   entry: {
-      index:path.resolve(__dirname, 'src/static/js/index.js'),
-      serviceworker: path.resolve(__dirname, 'src/static/sw.js')
+      index:path.resolve(__dirname, 'src/static/js/index.js')
     },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: '[name].js'
+    filename: '[name].[contenthash].js'
   },
 
   module:{
@@ -28,6 +28,13 @@ module.exports = {
       entry: path.join(__dirname, 'src/static/sw.js'),
       filename: 'sw.js',
       includes: ['*.css', '*.js']
+    }),
+    new ManifestPlugin({
+      fileName:'manifest-map.json',
+      basePath: path.join(__dirname, 'src/static/'),
+      seed: {
+        name: "My manifest mapping file"
+      }
     }),
   ],
 

@@ -8,7 +8,7 @@
 //       '/css/style.css'
 //   ].concat(serviceWorkerOption.assets))
 
-  const CORE_CACHE_VERSION = "pwa-v4"
+  const CORE_CACHE_VERSION = "pwa-v15"
   const CORE_ASSETS = [
       '/offline',
       '/css/style.css'
@@ -29,7 +29,28 @@
   });
 
 
+  self.addEventListener('notificationclick', function(e) {
+    var notification = e.notification;
+    var primaryKey = notification.data.primaryKey;
+    var action = e.action;
+  
+    if (action === 'close') {
+      notification.close();
+    } else if(action === 'update') {
+      console.log("updating!!")
 
+
+        self.skipWaiting()
+          .then(() => console.log("skip and waited"))
+          
+      
+
+      notification.close()
+      
+    }else{
+      notification.close();
+    }
+  });
 
 
 

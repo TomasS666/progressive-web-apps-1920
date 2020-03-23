@@ -4,6 +4,36 @@
 </footer>
 
 <script> 
+
+if (navigator.serviceWorker.controller) {
+                  
+    Notification.requestPermission(function(status) {
+      console.log('Notification permission status:', status);
+    })
+}
+
+function displayNotification() {
+  if (Notification.permission == 'granted') {
+    navigator.serviceWorker.getRegistration().then(function(reg) {
+      console.log("Notification is triggered")
+        var options = {
+                body: 'PWA has an update available for you!',
+                icon: 'images/example.png',
+                vibrate: [100, 50, 100],
+                data: {
+                  dateOfArrival: Date.now(),
+                  primaryKey: 1
+                },
+                actions: [
+                  {action: 'update', title: 'Update now!'},
+                  {action: 'close', title: 'Later'},
+                ]
+          };
+      reg.showNotification('Hello world!', options);
+    });
+  }
+}
+
     if('serviceWorker' in navigator) {
       navigator.serviceWorker
         .register('/sw.js')
@@ -14,23 +44,18 @@
         reg.addEventListener('updatefound', () => {
             newWorker = reg.installing;                 
             newWorker.addEventListener('statechange', () => {
+              console.log(newWorker.state)
               switch (newWorker.state) {
                 case 'installed':
+                  console.log("c%is installing, color:green")
                   if (navigator.serviceWorker.controller) {
-                                      Notification.requestPermission(function(status) {
-                    console.log('Notification permission status:', status);
-                  });
-
-
-                  function displayNotification() {
-                    if (Notification.permission == 'granted') {
-                      navigator.serviceWorker.getRegistration().then(function(reg) {
-                        reg.showNotification('Hello world!');
-                      });
-                    }
+                     displayNotification()
                   }
-
-displayNotification()
+                  break;
+                case 'waiting':
+                console.log("c%is waiting, color:green")
+                  if (navigator.serviceWorker.controller) {
+                     displayNotification()
                   }
                   break;
               }
