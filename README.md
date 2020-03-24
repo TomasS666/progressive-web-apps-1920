@@ -93,19 +93,19 @@ Declan Dek for giving me great feedback, helping me with with a better understan
 ## Used dependencies
 
 ### Transpiling to ES5
-@babel/core: 7.9.0
-@babel/preset-env: 7.9.0
+@babel/core: 7.9.0  
+@babel/preset-env: 7.9.0  
 babel-loader": 8.1.0"
 
 ### CSS within Webpack
-css-loader: 3.4.2
+css-loader: 3.4.2  
 mini-css-extract-plugin: 0.9.0
 
 ### For updating updated cached assets
 serviceworker-webpack-plugin: 1.0.1
 
 ### For minifying and building and using the other plugin
-webpack: 4.42.0
+webpack: 4.42.0  
 webpack-cli: 3.3.10
 
 ### For hot reload
