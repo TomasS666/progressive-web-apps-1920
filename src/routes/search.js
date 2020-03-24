@@ -6,6 +6,7 @@ const getData = require('../helpers/getData')
 const bodyParser = require('body-parser')
 const cleanObjects = require('../helpers/cleanData')
 const hasImage = require('../helpers/hasImage')
+const manifest = require('../../build/manifest-map.json')
 
 // Local data
 // const data = require("../helpers/fakeData")
@@ -114,7 +115,8 @@ router.get('/search/', (req, res)=>{
                     query: params,
                     meta: json.pages,
                     data: json.data,
-                    form: genreIdList
+                    form: genreIdList,
+                    manifest: manifest
                 })
             })
     

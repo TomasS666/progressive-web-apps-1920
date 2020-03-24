@@ -1,5 +1,5 @@
 // import {sw_init} from './sw.js'
-
+console.log("it happened")
 // sw_init()
 
 // imageComplete()

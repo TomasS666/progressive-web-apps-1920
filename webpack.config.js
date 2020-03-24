@@ -1,6 +1,7 @@
 const path = require('path');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
+const css = require('./test.css').toString();
 
 module.exports = {
 //   context: path.resolve(__dirname, 'src/static/js/'),
@@ -20,7 +21,11 @@ module.exports = {
             loader: 'babel-loader',
             options: { presets: ['@babel/preset-env'] },
         }]
-      }]
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
+      },]
   },
 
   plugins: [
@@ -31,7 +36,7 @@ module.exports = {
     }),
     new ManifestPlugin({
       fileName:'manifest-map.json',
-      basePath: '../src/static/',
+      basePath: '/',
       seed: {
         name: "My manifest mapping file"
       }

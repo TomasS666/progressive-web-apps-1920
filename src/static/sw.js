@@ -70,7 +70,7 @@
       event.respondWith(
         caches.open(CORE_CACHE_VERSION)
           .then(cache => cache.match(event.request.url))
-          .then(response => response ? response : fetchAndCache(event.request, CORE_CACHE_VERSION))
+          .then(response => response || fetchAndCache(event.request, CORE_CACHE_VERSION))
           .catch(e => {
             console.log('Ben ik offline?')
             return caches.open(CORE_CACHE_VERSION)

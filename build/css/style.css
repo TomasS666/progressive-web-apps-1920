@@ -323,6 +323,21 @@ footer{
 
 @media screen and (max-width: 83.375em){
 
+
+  .detail-section article figure{
+    all: unset;
+    margin: 0;
+  }
+  
+  .detail-section article img{
+    max-width: 100%;
+  }
+
+  .detail-section article figure figcaption{
+    padding: 3rem 0;
+  }
+
+
   .overview-section{
     padding: 1rem 0;
   }
