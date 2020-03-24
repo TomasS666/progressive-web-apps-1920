@@ -1,5 +1,5 @@
 {
   "name": "My manifest mapping file",
-  "../src/static/index.js": "index.7be93a418a7f8d2eead8.js",
+  "../src/static/index.js": "index.989eff05df622193a940.js",
   "../src/static/sw.js": "sw.js"
 }

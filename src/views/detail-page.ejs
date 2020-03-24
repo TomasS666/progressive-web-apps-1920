@@ -30,6 +30,24 @@
             <div class="result"></div>
 
         </section>
+
+        <% if(collection) { %>
+            <section class="related">
+                <h2>Related movies:</h2>
+                <% collection.forEach(movie =>{ %>
+
+                    <article title="<%= movie.title %>">
+                        <header>
+                            <h3><%= movie.title %></h3>
+                        </header>
+                        <figure>
+                            <img src="<%= movie.poster_path %>" alt="<%= movie.title %>">
+                        </figure>
+                    </article>
+
+                <% }) %>
+            </section>
+        <% } %>
         <!-- <a href="#movie/<%=movie.id%>">
                     <article>
                         <h3><%= movie.title %></h3>

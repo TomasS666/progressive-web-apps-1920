@@ -5,7 +5,7 @@
 // imageComplete()
 
 // function imageComplete(imgs){
-  console.log("check")
+if(document.querySelector("article") && document.querySelector("article").classList.contains('loading')){
     document.querySelectorAll("article").forEach(node =>{
       node.classList.add('loading');
       
@@ -17,6 +17,7 @@
         })
         
     })
+  }
 // }
 
 // self.addEventListener("beforeinstallprompt", function(e) {
