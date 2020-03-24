@@ -5,6 +5,7 @@
 // imageComplete()
 
 // function imageComplete(imgs){
+  console.log("check")
     document.querySelectorAll("article").forEach(node =>{
       node.classList.add('loading');
       

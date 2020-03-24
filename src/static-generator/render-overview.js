@@ -3,7 +3,7 @@ const render = require('../static-generator/render')
 const hasImage = require('../helpers/hasImage')
 const getData = require('../helpers/getData')
 const genreIdList = require("../helpers/genreIdList")
-
+const manifest = require('../../build/manifest-map.json')
 
 function getGenres(){
     // return (Promise.all(genreIdList.map((genre) =>{
@@ -61,7 +61,8 @@ function renderPage(){
     .then(genre =>{
         render({
             data:genre,
-            form: genreIdList
+            form: genreIdList,
+            manifest: manifest
         })
     }).catch(err => console.log(err))
 }

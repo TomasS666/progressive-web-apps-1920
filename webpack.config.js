@@ -25,13 +25,13 @@ module.exports = {
 
   plugins: [
     new ServiceWorkerWebpackPlugin({
-      entry: path.join(__dirname, 'src/static/sw.js'),
+      entry: path.resolve(__dirname, 'src/static/sw.js'),
       filename: 'sw.js',
       includes: ['*.css', '*.js']
     }),
     new ManifestPlugin({
       fileName:'manifest-map.json',
-      basePath: path.join(__dirname, 'src/static/'),
+      basePath: '../src/static/',
       seed: {
         name: "My manifest mapping file"
       }
