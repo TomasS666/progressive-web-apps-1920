@@ -90,6 +90,30 @@ I've gotten in to the shadow dom way too late, but better late than never. I was
 Robin Stut for feedback, help and tips in general and resources for keeping Heroku alive and not sleeping.
 Declan Dek for giving me great feedback, helping me with with a better understanding of performance and what I will achieve using a partial static generated application. Also with helping Ramon and me out with the service worker. Disclaimer: example of Declan is used for now (testing and getting a better understanding), but since I probably need another caching strategy and now I understand it better, I'm gonna update that code to a flavour for my own.
 
+## Used dependencies
+
+### Transpiling to ES5
+@babel/core: 7.9.0
+@babel/preset-env: 7.9.0
+babel-loader": 8.1.0"
+
+### CSS within Webpack
+css-loader: 3.4.2
+mini-css-extract-plugin: 0.9.0
+
+### For updating updated cached assets
+serviceworker-webpack-plugin: 1.0.1
+
+### For minifying and building and using the other plugin
+webpack: 4.42.0
+webpack-cli: 3.3.10
+
+### For hot reload
+webpack-dev-server: 3.9.0
+
+### For a mapping of hashed assets
+webpack-manifest-plugin: 2.2.0
+
 ## License
 
 [MIT License Copyright (c) 2020 Tomas S](https://github.com/TomasS666/web-app-from-scratch-1920/blob/master/LICENSE)
