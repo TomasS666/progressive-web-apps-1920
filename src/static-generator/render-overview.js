@@ -3,6 +3,8 @@ const render = require('../static-generator/render')
 const hasImage = require('../helpers/hasImage')
 const getData = require('../helpers/getData')
 const genreIdList = require("../helpers/genreIdList")
+
+// const imageConfig = require('../helpers/image-config-data.json')
 const manifest = require('../../build/manifest-map.json')
 
 function getGenres(){

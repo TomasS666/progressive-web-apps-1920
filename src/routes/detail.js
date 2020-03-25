@@ -4,7 +4,10 @@ const getData = require('../helpers/getData')
 const hasImage = require('../helpers/hasImage')
 const path = require('path')
 const render = require('../static-generator/render')
+
+const imageConfig = require('../helpers/images-config-data.json')
 const manifest = require('../../build/manifest-map.json')
+
 
 router.get('/movie/:id/:title', (req, res)=>{
 
@@ -34,17 +37,21 @@ async function getMovie(){
             return [data, trailers, collection]
         })
         .then(([data, trailers, collection]) => {
+
             // If collection, check if collection movies have image, else return null
             return [hasImage(data), trailers, collection ? hasImage(collection.parts) : null]
         })
 
         .then(([data, trailers, collection]) => {
             // console.log(collection)
+            
+console.log(data)
             res.render("detail-page.ejs", {
                 movie:data,
                 trailers:trailers.results,
                 collection: collection,
-                manifest: manifest
+                manifest: manifest,
+                imageConfig: imageConfig
             })
            
 

@@ -9,7 +9,6 @@ import '../index.html';
 import '../offline.html'
 
 
-
 importAll(require.context('../images/', true, /\.(png|jp(e*)g|svg)$/));
 function importAll (r) {
   r.keys().forEach(r);
@@ -17,7 +16,7 @@ function importAll (r) {
 
 
 if(document.querySelector("article a img")){
-    console.log("test5")
+    console.log("test10")
     document.querySelectorAll("article").forEach(node =>{
       node.classList.add('loading');
       console.log("Add loader")

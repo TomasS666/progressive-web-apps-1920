@@ -19,7 +19,10 @@
                     <h1><%= movie.title %></h1>
                 </header>
                 <figure>
-                    <img src="<%= movie.poster_path %>" alt="<%= movie.title %>">
+                    <img 
+                    src="<%= movie.poster_path %>"
+                    srcset="<%= movie.images %>"
+                    alt="<%= movie.title %>">
                     <figcaption>
                         <div>Genres: <%= movie.genres %> </div>
                         <p><%= movie.overview %></p>
@@ -41,7 +44,10 @@
                             <h3><%= movie.title %></h3>
                         </header>
                         <figure>
-                            <img src="<%= movie.poster_path %>" alt="<%= movie.title %>">
+                            <img 
+                                src="<%= movie.poster_path %>"
+                                srcset="<%= movie.images %>"
+                                alt="<%= movie.title %>">
                         </figure>
                     </article>
 

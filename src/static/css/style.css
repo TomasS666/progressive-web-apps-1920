@@ -132,9 +132,13 @@ header form button{
   position: relative;
 }
 
-.wrapper article img{
+.wrapper article img, 
+article img{
+  max-width: 25rem;
   width: 100%;
 }
+
+
 @keyframes shine-placeholder{
   from{
     background-position: -20rem -20rem;
@@ -303,6 +307,12 @@ footer{
 
 @media screen and (max-width: 83.375em){
 
+
+  .detail-section article figure{
+    display: unset;
+    place-content: unset;
+    margin: 0;
+  }
   .overview-section{
     padding: 1rem 0;
   }

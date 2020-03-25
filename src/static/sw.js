@@ -10,6 +10,7 @@
 
   const CORE_CACHE_VERSION = "pwa-v15"
   const CORE_ASSETS = [
+      '/',
       '/offline'
   ].concat(serviceWorkerOption.assets);
 
