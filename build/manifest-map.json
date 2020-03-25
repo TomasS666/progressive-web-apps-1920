@@ -1,5 +1,14 @@
 {
   "name": "My manifest mapping file",
-  "/index.js": "index.989eff05df622193a940.js",
+  "/index.css": "style.47a8423026e6297562b9.css",
+  "/index.js": "index.6cb5365098a19f61aff8.js",
+  "/images/icons-152.png": "images/icons-152.png",
+  "/images/icons-192.png": "images/icons-192.png",
+  "/images/no-image.svg": "images/no-image.svg",
+  "/images/test.png": "images/test.png",
+  "/images/the-movie-db-logo.cb5571ba.png": "images/the-movie-db-logo.cb5571ba.png",
+  "/index.html": "index.html",
+  "/manifest-webmanifest.json": "manifest-webmanifest.json",
+  "/offline.html": "offline.html",
   "/sw.js": "sw.js"
 }

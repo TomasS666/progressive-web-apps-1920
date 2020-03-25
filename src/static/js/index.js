@@ -1,24 +1,36 @@
-// import {sw_init} from './sw.js'
-console.log("it happened")
-// sw_init()
+import '../css/style.css';
 
-// imageComplete()
+import '../images/the-movie-db-logo.cb5571ba.png';
 
-// function imageComplete(imgs){
-if(document.querySelector("article") && document.querySelector("article").classList.contains('loading')){
+import '../manifest-webmanifest.json';
+
+import '../index.html';
+
+import '../offline.html'
+
+
+
+importAll(require.context('../images/', true, /\.(png|jp(e*)g|svg)$/));
+function importAll (r) {
+  r.keys().forEach(r);
+}
+
+
+if(document.querySelector("article a img")){
+    console.log("test5")
     document.querySelectorAll("article").forEach(node =>{
       node.classList.add('loading');
-      
-        node.querySelector("a img").addEventListener("load",  ()=> {
+      console.log("Add loader")
+        node.querySelector("a img").addEventListener("load",  function(){
             // node.classList.remove("loading") 
-            
             node.removeAttribute("class")
             // node.querySelector("a img").removeEventListener("load", () => )
         })
         
     })
   }
-// }
+
+
 
 // self.addEventListener("beforeinstallprompt", function(e) {
     
@@ -33,6 +45,7 @@ if(document.querySelector("article") && document.querySelector("article").classL
 
 window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault()
+    let deferredPrompt;
     deferredPrompt = e
   })
   

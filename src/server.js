@@ -25,11 +25,15 @@ app
     .set('views', path.join(__dirname,'views'))
 
     
-    .use(express.static(path.join(__dirname, '../build')))
+    .use(express.static(path.join(__dirname, '../build'), {
+        // etag: false,
+        maxAge: '31536000'
+    }))
     .use('/', offline)
     .use('/', overview)
     .use('/', detail)
     .use('/', search)
+
 
     
     .listen(port, () => console.log(`WAFS is listening on port ${port}!`))

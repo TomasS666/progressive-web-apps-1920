@@ -10,8 +10,7 @@
 
   const CORE_CACHE_VERSION = "pwa-v15"
   const CORE_ASSETS = [
-      '/offline',
-      '/css/style.css'
+      '/offline'
   ].concat(serviceWorkerOption.assets);
 
 
@@ -33,7 +32,7 @@
     var notification = e.notification;
     var primaryKey = notification.data.primaryKey;
     var action = e.action;
-  
+    console.log(action)
     if (action === 'close') {
       notification.close();
     } else if(action === 'update') {
@@ -45,7 +44,7 @@
           
       
 
-      notification.close()
+      // notification.close()
       
     }else{
       notification.close();
@@ -64,12 +63,14 @@
         caches.open(CORE_CACHE_VERSION)
           .then(cache => cache.match(event.request.url))
       )
-    } else if (isHtmlGetRequest(event.request)) {
+    } 
+    else if (isHtmlGetRequest(event.request)) {
       console.log('html get request', event.request.url)
       // generic fallback
       event.respondWith(
         caches.open(CORE_CACHE_VERSION)
           .then(cache => cache.match(event.request.url))
+          // .then(response => response || fetchAndCache(event.request, CORE_CACHE_VERSION))
           .then(response => response || fetchAndCache(event.request, CORE_CACHE_VERSION))
           .catch(e => {
             console.log('Ben ik offline?')

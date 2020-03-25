@@ -4,7 +4,6 @@
 </footer>
 
 <script> 
-
 if (navigator.serviceWorker.controller) {
                   
     Notification.requestPermission(function(status) {
@@ -66,7 +65,7 @@ function displayNotification() {
         })
     }
   </script>
-  <script defer src="<%= manifest['/index.js'] %>"></script>
+  <script defer src="/<%= manifest['/index.js'] %>"></script>
 
 </body>
 </html>
