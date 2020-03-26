@@ -382,7 +382,7 @@ footer{
     flex: 0 0 auto;
     margin: 0 .75rem;
     max-width: 22rem;
-    height: 35rem;
+    /* height: 35rem; */
     /* min-height: 38rem; */
   }
   
