@@ -6,7 +6,7 @@
         <% if(trailers != "undefined" && trailers.length){ 
             if('key' in trailers[0] == true){
             %>
-        <iframe title="Trailer video" width="" height="" src="https://www.youtube.com/embed/<%= trailers[0].key%>">
+        <iframe title="Trailer video" width="" height="" src="https://www.youtube.com/embed/<%= trailers[0].key%>" allowfullscreen>
         </iframe>
         <% }} %>
 

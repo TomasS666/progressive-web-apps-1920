@@ -190,9 +190,11 @@ article img{
 .wrapper a{
   text-decoration: none;
   /* padding: 1rem 0; */
+  width: 100%;
+  height: 100%;
 }
 
-.wrapper article.loading{
+.wrapper .loading{
   /* max-width: 100%; */
   height: 100%;
 
@@ -332,6 +334,8 @@ footer{
 
   .wrapper a{
     flex: 1;
+    height: 100%;
+    display: block;
   }
 
   .wrapper article{
@@ -341,7 +345,8 @@ footer{
     flex: 0 0 auto;
     margin: 0 .75rem;
     max-width: 22rem;
-    min-height: 38rem;
+    height: 35rem;
+    /* min-height: 38rem; */
   }
   
   .wrapper article:first-of-type{
