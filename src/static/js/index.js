@@ -18,11 +18,11 @@ function importAll (r) {
 if(document.querySelector("article a img")){
     console.log("test10")
     document.querySelectorAll("article").forEach(node =>{
-      node.querySelector("a img").classList.add('loading');
+      node.querySelector("img").classList.add('loading');
       console.log("Add loader")
-        node.querySelector("a img").addEventListener("load",  function(){
+        node.querySelector("img").addEventListener("load",  function(){
             // node.classList.remove("loading") 
-            node.querySelector("a img").removeAttribute("class")
+            node.querySelector("img").removeAttribute("class")
             // node.querySelector("a img").removeEventListener("load", () => )
         })
         

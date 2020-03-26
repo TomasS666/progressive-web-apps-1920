@@ -31,12 +31,8 @@ html, body{
   display: block;
 }
 
-.hidden{
+.hidden, .share.hidden{
   display: none;
-}
-
-.share{
-  /* display: none; */
 }
 
 header nav{
