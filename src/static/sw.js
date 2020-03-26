@@ -39,10 +39,9 @@
     } else if(action === 'update') {
       console.log("updating!!")
 
-
+      
         self.skipWaiting()
-          .then(() => console.log("skip and waited"))
-          
+      
       
 
       // notification.close()
@@ -67,7 +66,7 @@
     } 
     else if (isHtmlGetRequest(event.request)) {
       console.log('html get request', event.request.url)
-      // generic fallback
+ 
       event.respondWith(
         caches.open(CORE_CACHE_VERSION)
           .then(cache => cache.match(event.request.url))

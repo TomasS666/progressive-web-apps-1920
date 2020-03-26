@@ -68,7 +68,6 @@ header form{
   align-items: unset;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: center; */
   width: 100%;
   margin: 3rem auto;
   max-width: 30rem;
@@ -89,10 +88,6 @@ header form input,
 header form button{
   border-radius: .25rem;
 }
-
-/* header form input:focus{
-  transition: .3s;
-} */
 
 header form input:valid ~ button{
   box-shadow: .2rem .2rem .4rem #2a2a2a;
@@ -134,9 +129,7 @@ header form button{
 
   justify-content: center;
   position: relative;
-  /* padding: 5rem 0 0 0; */
   grid-gap: 2rem;
-  /* justify-content: center; */
 }
 
 .wrapper article{
@@ -145,8 +138,6 @@ header form button{
   transition: all .3s;
   transform-origin: center;
   box-shadow: 0.1rem 0.1rem 0.4rem #121212;
-  /* display: flex;
-  flex-direction: column; */
   color: var(--white);
   position: relative;
 }
@@ -191,13 +182,9 @@ article img{
 
 }
 
-/* .wrapper article:nth-of-type(1){
-  grid-column: 1 / 3;
-} */
 
 .wrapper h2,
 .wrapper h1{
-  /* grid-column: 1 / 4; */
   grid-column: 1 / -1;
 }
 
@@ -212,13 +199,10 @@ article img{
 
 .wrapper a{
   text-decoration: none;
-  /* padding: 1rem 0; */
   width: 100%;
-  /* height: 100%; */
 }
 
 .wrapper .loading{
-  /* max-width: 100%; */
   height: calc(100% - 7rem);
 
   background: linear-gradient(to bottom right, #464646 40%, #FFF 50%, #464646 60%) #464646;
@@ -232,7 +216,6 @@ article img{
   transform: scale(1.09);
   box-shadow: 0.4rem 0.4rem 0.4rem #2a2a2a;
   transition: all .3s;
-  /* background-color: #fff; */
 }
 
 .wrapper article:hover h3{
@@ -275,16 +258,12 @@ article img{
 }
 
 .overview-section .wrapper{
-  /* max-width: 80vw;
-  margin: auto; */
   width: 100%;
-  /* overflow-y: hidden; */
 }
 
 
 
 iframe{
-  /* animation: test 2s; */
   width: 100%;
   height: 60vh;
   border: none;
@@ -293,7 +272,6 @@ iframe{
 
 form{
   display: flex;
-  /* background: grey; */
   align-items: center;
 }
 
@@ -305,8 +283,6 @@ form{
   background-color: #ffffff;
   font-size: 5rem;
 }
-
-
 
 @keyframes test{
   from{
@@ -338,10 +314,11 @@ footer{
   left: 0;
 }
 
-
-
-
-/* @media screen and (max-width: 67.875em){ */
+@media screen and (max-width: 20em){
+  .detail-section article figure figcaption {
+    padding: 2rem 0;
+  }
+}
 
 @media screen and (max-width: 83.375em){
 
@@ -358,7 +335,6 @@ footer{
   
   .wrapper{
     display: flex;
-    /* flex-wrap: wrap; */
     scroll-snap-type: x mandatory;
     overflow-x: scroll;
     justify-content: unset;
@@ -382,8 +358,6 @@ footer{
     flex: 0 0 auto;
     margin: 0 .75rem;
     max-width: 22rem;
-    /* height: 35rem; */
-    /* min-height: 38rem; */
   }
   
   .wrapper article:first-of-type{

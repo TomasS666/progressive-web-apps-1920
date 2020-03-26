@@ -31,15 +31,9 @@ if(document.querySelector("article a img")){
 
 
 
-// self.addEventListener("beforeinstallprompt", function(e) {
-    
-//     if(window.location.href != 'http://localhost:8080/'){
-//         e.prompt()
-//     }else{
-//         e.preventDefault()
-//     }
 
-// })
+
+
 
 
 window.addEventListener('beforeinstallprompt', e => {
