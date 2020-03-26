@@ -1,6 +1,5 @@
-require('dotenv').config({path:__dirname+'../../.env'})
-
-
+require('dotenv')
+    .config({path:__dirname+'../../.env'})
 
 const express = require('express')
 const app = express()
@@ -16,15 +15,13 @@ const bodyParser = require('body-parser')
 const path = require("path")
 
 const partials = require('express-partials');
-// app.get('/', (req, res) => res.send('Hello World!'))
+
 app
-    
     .use(bodyParser.urlencoded({ extended: true }))
     .use(partials())
     .set('view-engine', 'ejs')
     .set('views', path.join(__dirname,'views'))
 
-    
     .use(express.static(path.join(__dirname, '../build'), {
         // etag: false,
         maxAge: '31536000'
@@ -34,6 +31,4 @@ app
     .use('/', detail)
     .use('/', search)
 
-
-    
     .listen(port, () => console.log(`WAFS is listening on port ${port}!`))

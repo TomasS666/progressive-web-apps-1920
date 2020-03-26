@@ -2,12 +2,9 @@ const express = require('express');
 const router = express.Router();
 const getData = require('../helpers/getData')
 const hasImage = require('../helpers/hasImage')
-const path = require('path')
-const render = require('../static-generator/render')
-
 const imageConfig = require('../helpers/images-config-data.json')
 const manifest = require('../../build/manifest-map.json')
-
+const cleanData = require('../helpers/cleanData')
 
 router.get('/movie/:id/:title', (req, res)=>{
 
@@ -26,7 +23,7 @@ async function getMovie(){
    return [movie, videos, collection]
 }
         // .then(json =>{
-        //     return cleanObjects(json.results, ["id", "title", "poster_path", "vote_average", "overview"]);
+        //     return cleanData(json.results, ["id", "title", "poster_path", "vote_average", "overview"]);
         // })
 
         getMovie().then(([data, trailers, collection]) => {

@@ -46,7 +46,7 @@ window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault()
     let deferredPrompt;
     deferredPrompt = e
-  })
+
   
   const btnInstallApp = document.getElementById('btn-install-app')
   
@@ -64,14 +64,17 @@ window.addEventListener('beforeinstallprompt', e => {
         })
       })
   }
-
+})
 if(document.querySelector('button.share')){
+ 
     if(navigator.share){
         
-    const btn = document.querySelector('button.share');
+      const btn = document.querySelector('button.share');
+      btn.classList.add("show")
+      btn.classList.remove("hidden")
     const resultPara = document.querySelector('.result');
 
-    btn.classList.add("show")
+
 
       btn.addEventListener('click', () => {
         const title = window.document.title;

@@ -4,14 +4,14 @@
     <%- include('components/header.ejs') %>
     <main id="content">
         <% if(trailers != "undefined" && trailers.length){ 
-            if('key' in trailers[0] == true){
+                if('key' in trailers[0] == true){
             %>
         <iframe title="Trailer video" width="" height="" src="https://www.youtube.com/embed/<%= trailers[0].key%>" allowfullscreen>
         </iframe>
         <% }} %>
 
         <section class="detail-section">
-            <button class="share">Share!</button>
+           
 
             <button id="btn-install-app" class="btn">Install App</button>
             <article title="<%= movie.title %>">
@@ -28,6 +28,7 @@
                         <p><%= movie.overview %></p>
                     </figcaption>
                 </figure>
+                <button class="share hidden">Share!</button>
             </article>
            
             <div class="result"></div>
@@ -37,6 +38,7 @@
         <% if(collection) { %>
             <section class="related">
                 <h2>Related movies:</h2>
+                <div class="wrapper">
                 <% collection.forEach(movie =>{ %>
 
                     <article title="<%= movie.title %>">
@@ -44,14 +46,17 @@
                             <h3><%= movie.title %></h3>
                         </header>
                         <figure>
+                            <a href="/movie/<%= movie.id%>/<%= movie.title.replace(/\s+/g, '-').toLowerCase(); %>">
                             <img 
                                 src="<%= movie.poster_path %>"
                                 srcset="<%= movie.images %>"
                                 alt="<%= movie.title %>">
+                            </a>
                         </figure>
                     </article>
 
                 <% }) %>
+                </div>
             </section>
         <% } %>
 

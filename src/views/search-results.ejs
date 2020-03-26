@@ -3,30 +3,42 @@
 <body>
     <%- include('components/header.ejs') %>
     <main id="content">
+        <% if( meta > 0 ) {%>
         <h2>Results: <%= query.query %></h2>
-        <nav>
+        <% }else{ %>
+        <h2>We're sorry, we couldn't find results, please try again</h2>
+        <% } %>
+        <nav class="pagination">
             <!-- <a href="<%= query.url %>">Next</a> -->
-            Page <%= query.page %> of <%= meta %>
-            <a href="<%= prevPage  %>" class="<%= query.page == 1 ? 'inactive': 'active'%>">Previous</a>
-            <a href="<%= nextPage  %>" class="<%= query.page >= meta ? 'inactive': 'active'%>">Next</a>
+
+            <% if( meta > 1 ) {%>
+            <p>Page <%= query.page %> of <%= meta %></p>
+         
+            <a href="<%= prevPage  %>" class="page-control <%= query.page == 1 ? 'inactive': 'active'%>">Previous</a>
+            <% if( query.page < meta ) {%>
+            <a href="<%= nextPage  %>" class="page-control <%= query.page >= meta ? 'inactive': 'active'%>">Next</a>
+            <% }} %>
         </nav>
         <div class="wrapper">
-           
-        <% data.forEach((movie)=> { %>
-            
-                
-                    <article class="loading">
-                        
-                        <h3><%= movie.title %></h3>
-                        <a href="movie/<%= movie.id%>/<%= movie.title.replace(/\s+/g, '-').toLowerCase(); %>">
-                        <img src="<%= movie.poster_path %>" alt="<%= movie.title %>">
-                    </a>
-                        <div data-ui="rating"><%= movie.vote_average %></div>
-                  
-                    </article>
-              
 
-            <%})%>   
+            <% data.forEach((movie)=> { %>
+
+
+            <article>
+
+                <h3><%= movie.title %></h3>
+                <a href="movie/<%= movie.id%>/<%= movie.title.replace(/\s+/g, '-').toLowerCase(); %>">
+                    <img 
+                    src="<%= movie.poster_path %>"
+                    srcset="<%= movie.images %>"
+                    alt="<%= movie.title %>">
+                </a>
+                <div data-ui="rating"><%= movie.vote_average %></div>
+
+            </article>
+
+
+            <%})%>
         </div>
 
     </main>

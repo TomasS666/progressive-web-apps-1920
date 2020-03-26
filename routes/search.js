@@ -4,7 +4,7 @@ const router = express.Router();
 const querystring = require('querystring');
 const getData = require('../helpers/getData')
 const bodyParser = require('body-parser')
-const cleanObjects = require('../helpers/cleanData')
+const cleanData = require('../helpers/cleanData')
 const hasImage = require('../helpers/hasImage')
 
 // Local data
@@ -96,7 +96,7 @@ router.get('/search/', (req, res)=>{
                 console.log(json)
                 return {
                     pages: json.total_pages, 
-                    data: cleanObjects(json.results, ["id", "title", "poster_path", "vote_average"])
+                    data: cleanData(json.results, ["id", "title", "poster_path", "vote_average"])
                 }
             })
             .then(json => {
