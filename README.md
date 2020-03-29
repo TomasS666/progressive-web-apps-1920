@@ -149,6 +149,8 @@ Als navigator share, feature detection, show share knop die de native share api 
 #### Install before prompt PWA
 Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleerd heeft blijft de prompt triggeren als een gebruiker op de knop drukt op een detailpagina. 
 
+![install app btn](docs/install-movie-btn.png)
+
 #### Image reflow / image skeleton state
 This is one of the things I struggled the most with. *Dislaimer:* next time I'm probably going for the padding hack which is a common way to determine a image it's ratio and adding that as a padding with some additional CSS rules so it preserves the exact space the incoming image will take.
 
@@ -168,12 +170,20 @@ Now I also had a different important
 #### Genres
 Iets over async await van alle genres, wat ik heb gedaan, hoe Kris vond dat het beter kon, die aanpak pakte in mijn use case niet lekker uit en misschien was mijn oplossing dus wel geschikt, maar het zou wss beter kunnen
 
+#### Search and results page
+![search bar](docs/ux-disabled-btn-and-required-field-details.png)
+
+![image and results page](docs/results-page.png)
+
 #### Movie detail page
+
 
 #### Movie trailers
 Okay nice, a movie poster, the movie genres and a description. It's a start, but it's quite boring. I wanted more. The data is so rich, and I'm only displaying this? What's more cool than seeing a live action preview of the movie? A trailer? Cool let's do it. 
 
 And so I checked out the data and how to retrieve video material via the TMDB. Turns out they had me covered.
+
+![trailer of rambo](docs/getting%20the%20first%20trailer.png)
 
 #### Movie Collection
 Hoe films collectie erbij kwam kijken. Dat ik dat wilde laten doorlinken. Dat het uiteindelijk is gelukt. 
