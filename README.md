@@ -114,6 +114,61 @@ webpack-dev-server: 3.9.0
 ### For a mapping of hashed assets
 webpack-manifest-plugin: 2.2.0
 
+
+
+## Proces
+
+### srcset
+Kom er uit, het werkt, maar sizes kunnen beter, begrijp dat nog niet helemaal
+
+Heb geprobeert webp te retrieven van tmdb, maar dat dat lijkt niet te kunnen, na veel zoeken. Webp gaat in moderne browsers efficiënter om met bandbreedte als het goed is.
+
+
+### Heb css en js geminified met webpack plugins,
+
+Html zou nog mooi zijn, build het al wel
+Check of het al geminified is
+
+Gzippen doe ik ook, ik serveer het alleen nog niet, kan ik nog even naar kijken
+
+
+### SW
+
+#### skipWaiting
+Sw self.skipwait lukt wel met button, maar niet met showNotifcation en de afhandeling daarvan, vermoedelijk omdat ik met de verkeerde sw communiceer.
+
+Als ux overweging kan ik misschien sws beter als popup of knop laten zien en als enhancement een notificatie als daar consent voor is gegeven.
+
+### Navigator share API
+Als navigator share, feature detection, show share knop die de native share api gebruikt van de os zodat je films kunt delen
+
+### Install before prompt PWA
+Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleerd heeft blijft de prompt triggeren als een gebruiker op de knop drukt op een detailpagina. 
+
+Hoe films collectie erbij kwam kijken. Dat ik dat wilde laten doorlinken. Dat het uiteindelijk is gelukt. 
+
+Cast kwam nog om de hoek kijken. 
+
+Audit scores
+Hoe Heroku fucked, dat ik niet de hobby dyno wilde want creditcard. 
+
+Hoe ik die andere performance website heb ingeschakeld. 
+
+SendFile vs laten vallen op static map, geen verschil uiteindelijk. 
+
+Content age in express, headers
+
+
+Iets over async await van alle genres, wat ik heb gedaan, hoe Kris vond dat het beter kon, die aanpak pakte in mijn use case niet lekker uit en misschien had ik dus toch gelijk, maar het zou wss beter kunnen
+
+
+Hoe ik de render functie heb aangepakt, hoe ik dat voor alles wilde maar dat Declan zei dat ik het al laat zien als ik de overzichtpagina prerender.
+
+Dat ik heb gekeken of ik het meer generiek kon maken. Wat mijn idee daarover was.
+
+Hoe ik een mogelijke filter wilde toepassen maar dat niet meer is gelukt
+
+
 ## License
 
 [MIT License Copyright (c) 2020 Tomas S](https://github.com/TomasS666/web-app-from-scratch-1920/blob/master/LICENSE)
