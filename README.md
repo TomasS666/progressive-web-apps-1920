@@ -159,6 +159,9 @@ Not getting into to many details, but challenges like these came along all the t
 Now I also had a different important
 
 ![images-loading-animation](docs/images-loading-anim.png)
+![images-loading-animation](docs/loading-per-image-complete.png)
+
+
 
 ### Features in dept
 
