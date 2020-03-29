@@ -151,6 +151,12 @@ Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleer
 
 ![install app btn](docs/install-movie-btn.png)
 
+If the user clicks on that button, the install prompt for the PWA is triggered.
+
+![install prompt](docs/install-prompt.png)
+
+Until this results into the action of actually installing the app, the button is able to trigger to prompt. I haven't fixed that the button disappears when the user has it installed though.
+
 #### Image reflow / image skeleton state
 This is one of the things I struggled the most with. *Dislaimer:* next time I'm probably going for the padding hack which is a common way to determine a image it's ratio and adding that as a padding with some additional CSS rules so it preserves the exact space the incoming image will take.
 
@@ -171,7 +177,17 @@ Now I also had a different important
 Iets over async await van alle genres, wat ik heb gedaan, hoe Kris vond dat het beter kon, die aanpak pakte in mijn use case niet lekker uit en misschien was mijn oplossing dus wel geschikt, maar het zou wss beter kunnen
 
 #### Search and results page
+Disabled because not filled and field is required:
 ![search bar](docs/ux-disabled-btn-and-required-field-details.png)
+
+Enabled because user entered something
+
+![enabled form](docs/ux-active-btn-and-required-field-details.png)
+
+When the user searches for something that doesn't exist: 
+
+![not found](docs/error-when-searchterm-fail.png)
+![random searchterm that doesn't exist](docs/gibberish-search.png)
 
 ![image and results page](docs/results-page.png)
 
@@ -190,6 +206,8 @@ Hoe films collectie erbij kwam kijken. Dat ik dat wilde laten doorlinken. Dat he
 
 #### Movie Cast
 Cast kwam nog om de hoek kijken. 
+
+![movie cast](docs/casting.png)
 
 #### Filter
 Hoe ik een mogelijke filter wilde toepassen maar dat niet meer is gelukt
