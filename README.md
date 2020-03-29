@@ -145,10 +145,18 @@ Als navigator share, feature detection, show share knop die de native share api 
 ### Install before prompt PWA
 Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleerd heeft blijft de prompt triggeren als een gebruiker op de knop drukt op een detailpagina. 
 
+### Features in dept
+
+#### Genres
+Iets over async await van alle genres, wat ik heb gedaan, hoe Kris vond dat het beter kon, die aanpak pakte in mijn use case niet lekker uit en misschien was mijn oplossing dus wel geschikt, maar het zou wss beter kunnen
+
+#### Movie Collection
 Hoe films collectie erbij kwam kijken. Dat ik dat wilde laten doorlinken. Dat het uiteindelijk is gelukt. 
 
+#### Movie Cast
 Cast kwam nog om de hoek kijken. 
 
+## Lighthouse Audits
 Audit scores
 Hoe Heroku fucked, dat ik niet de hobby dyno wilde want creditcard. 
 
@@ -158,12 +166,7 @@ SendFile vs laten vallen op static map, geen verschil uiteindelijk.
 
 Content age in express, headers
 
-
-Iets over async await van alle genres, wat ik heb gedaan, hoe Kris vond dat het beter kon, die aanpak pakte in mijn use case niet lekker uit en misschien had ik dus toch gelijk, maar het zou wss beter kunnen
-
-
 Hoe ik de render functie heb aangepakt, hoe ik dat voor alles wilde maar dat Declan zei dat ik het al laat zien als ik de overzichtpagina prerender.
-
 Dat ik heb gekeken of ik het meer generiek kon maken. Wat mijn idee daarover was.
 
 Hoe ik een mogelijke filter wilde toepassen maar dat niet meer is gelukt
