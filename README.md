@@ -151,6 +151,12 @@ Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleer
 
 ![install app btn](docs/install-movie-btn.png)
 
+If the user clicks on that button, the install prompt for the PWA is triggered.
+
+![install prompt](docs/install-prompt.png)
+
+Until this results into the action of actually installing the app, the button is able to trigger to prompt. I haven't fixed that the button disappears when the user has it installed though.
+
 #### Image reflow / image skeleton state
 This is one of the things I struggled the most with. *Dislaimer:* next time I'm probably going for the padding hack which is a common way to determine a image it's ratio and adding that as a padding with some additional CSS rules so it preserves the exact space the incoming image will take.
 
