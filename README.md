@@ -4,6 +4,9 @@ This product uses the TMDb API but is not endorsed or certified by TMDb.
 
 ![WAFS - Movies](https://user-images.githubusercontent.com/49723502/74514641-4b9d7180-4f0d-11ea-894b-5f32e328dcfc.png)
 
+## Table of contents
+* [Description](#description)
+
 ## Questions for feedback 20-03-2020 (NL)
 1. Ik weet dat we het maandag over TTFB gaan hebben, maar ik was er zelf al mee bezig geweest.
 Ik ging kijken naar het verschil tussen de performance van een "at-runtime" gerenderde pagina en een statische pagina. Maar verder dan dat keek ik of er een verschil zou zitten in express sendFile() en het weghalen van de route en om te zorgen dat static map de overview.html zou pakken. 
