@@ -178,6 +178,11 @@ Enabled because user entered something
 
 ![enabled form](docs/ux-active-btn-and-required-field-details.png)
 
+When the user searches for something that doesn't exist: 
+
+![not found](docs/error-when-searchterm-fail.png)
+![random searchterm that doesn't exist](docs/gibberish-search.png)
+
 ![image and results page](docs/results-page.png)
 
 #### Movie detail page
