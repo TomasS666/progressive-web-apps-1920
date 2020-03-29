@@ -143,11 +143,20 @@ Sw self.skipwait lukt wel met button, maar niet met showNotifcation en de afhand
 
 Als ux overweging kan ik misschien sws beter als popup of knop laten zien en als enhancement een notificatie als daar consent voor is gegeven.
 
-### Navigator share API
+#### Navigator share API
 Als navigator share, feature detection, show share knop die de native share api gebruikt van de os zodat je films kunt delen
 
-### Install before prompt PWA
+#### Install before prompt PWA
 Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleerd heeft blijft de prompt triggeren als een gebruiker op de knop drukt op een detailpagina. 
+
+#### Image reflow / image skeleton state
+This is one of the things I struggled the most with. *Dislaimer:* next time I'm probably going for the padding hack which is a common way to determine a image it's ratio and adding that as a padding with some additional CSS rules so it preserves the exact space the incoming image will take.
+
+Anyway, I started out with a CSS grid layout to touch that again as well and do some cool things with it I haven't done yet. But soon I ran into trouble and challenges arose. What if I'm autofilling the movies, but the according section title isn't aligned properly? That ment I had to include my title to the grid container. But for those who worked with flexbox and grid, you can imagine chaning the markup like that, had immediate effect on my layout. More specifically how I broke it. 
+
+Not getting into to many details, but challenges like these came along all the time and distrupted my loading state, the spacing, layout, "skeleton" layout etc. as you can imagine.
+
+Now I also had a different important
 
 ### Features in dept
 
