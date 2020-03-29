@@ -154,26 +154,40 @@ Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleer
 #### Genres
 Iets over async await van alle genres, wat ik heb gedaan, hoe Kris vond dat het beter kon, die aanpak pakte in mijn use case niet lekker uit en misschien was mijn oplossing dus wel geschikt, maar het zou wss beter kunnen
 
+#### Movie detail page
+
+#### Movie trailers
+Okay nice, a movie poster, the movie genres and a description. It's a start, but it's quite boring. I wanted more. The data is so rich, and I'm only displaying this? What's more cool than seeing a live action preview of the movie? A trailer? Cool let's do it. 
+
+And so I checked out the data and how to retrieve video material via the TMDB. Turns out they had me covered.
+
 #### Movie Collection
 Hoe films collectie erbij kwam kijken. Dat ik dat wilde laten doorlinken. Dat het uiteindelijk is gelukt. 
 
 #### Movie Cast
 Cast kwam nog om de hoek kijken. 
 
+#### Filter
+Hoe ik een mogelijke filter wilde toepassen maar dat niet meer is gelukt
+
 ## Lighthouse Audits
 Audit scores
-Hoe Heroku fucked, dat ik niet de hobby dyno wilde want creditcard. 
 
+## Other performance tools
 Hoe ik die andere performance website heb ingeschakeld. 
 
 SendFile vs laten vallen op static map, geen verschil uiteindelijk. 
 
 Content age in express, headers
 
+## Heroku deployment pros and cons
+Hoe Heroku fucked, dat ik niet de hobby dyno wilde want creditcard. 
+
+
+## Prerendering!
 Hoe ik de render functie heb aangepakt, hoe ik dat voor alles wilde maar dat Declan zei dat ik het al laat zien als ik de overzichtpagina prerender.
 Dat ik heb gekeken of ik het meer generiek kon maken. Wat mijn idee daarover was.
 
-Hoe ik een mogelijke filter wilde toepassen maar dat niet meer is gelukt
 
 
 ## License
