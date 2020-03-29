@@ -170,17 +170,24 @@ Cast kwam nog om de hoek kijken.
 #### Filter
 Hoe ik een mogelijke filter wilde toepassen maar dat niet meer is gelukt
 
-## Lighthouse Audits
+### Performance
+#### Lighthouse Audits
 Audit scores
 
-## Other performance tools
+#### Other performance tools
 Hoe ik die andere performance website heb ingeschakeld. 
 
 SendFile vs laten vallen op static map, geen verschil uiteindelijk. 
 
 Content age in express, headers
 
-## Heroku deployment pros and cons
+#### Critical rendering path
+
+### Heroku deployment pros and cons
+Heroku is a really nice tool for deploying your projects! Especially because you can run your Node.js project there for free. But of course being free, comes with it's limitations. Before I dive into some challenges, I want to give a shoutout to Heroku because without it I wouldn't have been able to deploy it right away, anyway.
+
+But no, when 
+
 Hoe Heroku fucked, dat ik niet de hobby dyno wilde want creditcard. 
 
 
