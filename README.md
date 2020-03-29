@@ -53,7 +53,32 @@ I'm fetching data on the following endpoints:
 To get a list of movies of a certain genre:
 ```
 /discover/movie/with_genre={id}
+```
+
+Get movie by id:
+```
 /movie/{id}
+
+```
+
+Get movie and movies that belong to a collection if one exists
+```
+/collection/{id}
+```
+
+Get movie and retrieve appended credits / cast:
+```
+/movie/{id}/...../ &append_to_response=credits
+```
+
+Search for movies:
+```
+search/{query}
+```
+
+Videos:
+```
+/movies/{id}/videos
 ```
 
 ### Used data
