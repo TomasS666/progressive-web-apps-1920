@@ -196,6 +196,8 @@ Hoe films collectie erbij kwam kijken. Dat ik dat wilde laten doorlinken. Dat he
 #### Movie Cast
 Cast kwam nog om de hoek kijken. 
 
+![movie cast](docs/casting.png)
+
 #### Filter
 Hoe ik een mogelijke filter wilde toepassen maar dat niet meer is gelukt
 
