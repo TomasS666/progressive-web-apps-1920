@@ -122,10 +122,10 @@ webpack-manifest-plugin: 2.2.0
 
 ## Proces
 
-### srcset
-Kom er uit, het werkt, maar sizes kunnen beter, begrijp dat nog niet helemaal
+#### What I've learned as a person / developer / designer
+Of course this course and the road you travel on is for learning new things. If I knew everything at the start, what would be left to learn? Fortunately I learned that you can develop and design endlessly. It never actually stops. But for this course alone we had an estimated 6 days to round up. Okay yes, I've had a few hours on the weekend as well. But to get to the point: at many points I'm eager to go on, to add new features, to improve etc. But with every additional feature comes exponential complexity, documentation etc. There's simply not enough time for everything. There never will be. So I've done my best, but I "laid down my arms", I stopped at the right time to round up my documentation and to finish my other course as well. Knowing that some parts required more attention, didn't get attention, could be improved, could be better, but are good for now, since I've learned so damn much, I draw my satisfaction from the learning experience.
 
-Heb geprobeert webp te retrieven van tmdb, maar dat dat lijkt niet te kunnen, na veel zoeken. Webp gaat in moderne browsers efficiënter om met bandbreedte als het goed is.
+dat dat lijkt niet te kunnen, na veel zoeken. Webp gaat in moderne browsers efficiënter om met bandbreedte als het goed is.
 
 
 ### Heb css en js geminified met webpack plugins,
@@ -136,30 +136,54 @@ Check of het al geminified is
 Gzippen doe ik ook, ik serveer het alleen nog niet, kan ik nog even naar kijken
 
 
-### SW
+### SW and other enhancements
 
 #### skipWaiting
 Sw self.skipwait lukt wel met button, maar niet met showNotifcation en de afhandeling daarvan, vermoedelijk omdat ik met de verkeerde sw communiceer.
 
 Als ux overweging kan ik misschien sws beter als popup of knop laten zien en als enhancement een notificatie als daar consent voor is gegeven.
 
-### Navigator share API
+#### Navigator share API
 Als navigator share, feature detection, show share knop die de native share api gebruikt van de os zodat je films kunt delen
 
-### Install before prompt PWA
+#### Install before prompt PWA
 Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleerd heeft blijft de prompt triggeren als een gebruiker op de knop drukt op een detailpagina. 
+
+![install app btn](docs/install-movie-btn.png)
+
+#### Image reflow / image skeleton state
+This is one of the things I struggled the most with. *Dislaimer:* next time I'm probably going for the padding hack which is a common way to determine a image it's ratio and adding that as a padding with some additional CSS rules so it preserves the exact space the incoming image will take.
+
+Anyway, I started out with a CSS grid layout to touch that again as well and do some cool things with it I haven't done yet. But soon I ran into trouble and challenges arose. What if I'm autofilling the movies, but the according section title isn't aligned properly? That ment I had to include my title to the grid container. But for those who worked with flexbox and grid, you can imagine chaning the markup like that, had immediate effect on my layout. More specifically how I broke it. 
+
+Not getting into to many details, but challenges like these came along all the time and distrupted my loading state, the spacing, layout, "skeleton" layout etc. as you can imagine.
+
+Now I also had a different important
+
+![images-loading-animation](docs/images-loading-anim.png)
+![images-loading-animation](docs/loading-per-image-complete.png)
+
+
 
 ### Features in dept
 
 #### Genres
 Iets over async await van alle genres, wat ik heb gedaan, hoe Kris vond dat het beter kon, die aanpak pakte in mijn use case niet lekker uit en misschien was mijn oplossing dus wel geschikt, maar het zou wss beter kunnen
 
+#### Search and results page
+![search bar](docs/ux-disabled-btn-and-required-field-details.png)
+
+![image and results page](docs/results-page.png)
+
 #### Movie detail page
+
 
 #### Movie trailers
 Okay nice, a movie poster, the movie genres and a description. It's a start, but it's quite boring. I wanted more. The data is so rich, and I'm only displaying this? What's more cool than seeing a live action preview of the movie? A trailer? Cool let's do it. 
 
 And so I checked out the data and how to retrieve video material via the TMDB. Turns out they had me covered.
+
+![trailer of rambo](docs/getting%20the%20first%20trailer.png)
 
 #### Movie Collection
 Hoe films collectie erbij kwam kijken. Dat ik dat wilde laten doorlinken. Dat het uiteindelijk is gelukt. 
@@ -171,6 +195,22 @@ Cast kwam nog om de hoek kijken.
 Hoe ik een mogelijke filter wilde toepassen maar dat niet meer is gelukt
 
 ### Performance
+
+### Image optimization
+At some point it felt like there had to be more to the images I was retrieving. There must be a way to enhance them right? Or not? There was a lack of understanding here maybe. I thought, since I'm not serving the images from my own server / source, I must download them and write them away to my own server, do processing, alternation, webp, etc... to be able to improve performance. I thought since I didn't serve them, I couldn't influence perfomance. But then I got some resources from Declan about the srcset and sizes features.
+
+#### Srcset 
+
+#### Sizes 
+
+#### How I implemented them
+
+
+
+Kom er uit, het werkt, maar sizes kunnen beter, begrijp dat nog niet helemaal
+
+Heb geprobeert webp te retrieven van tmdb, maar 
+
 #### Lighthouse Audits
 Audit scores
 
