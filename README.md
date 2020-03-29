@@ -148,9 +148,9 @@ Als ux overweging kan ik misschien sws beter als popup of knop laten zien en als
 #### Navigator share API
 Als navigator share, feature detection, show share knop die de native share api gebruikt van de os zodat je films kunt delen
 
-![share button](docs/share-btn.jpg)
+<img src="docs/share-btn.jpg" width="300px">
 
-![share api oppertunity to share](docs/hare-app.jpg)
+![share api oppertunity to share](docs/share-app.jpg)
 
 #### Install before prompt PWA
 Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleerd heeft blijft de prompt triggeren als een gebruiker op de knop drukt op een detailpagina. 
