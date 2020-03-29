@@ -17,7 +17,7 @@ function importAll (r) {
 
 
 
-if(document.querySelector("article a img")){
+if(document.querySelector("article  img")){
     console.log("test10")
     document.querySelectorAll("article").forEach(node =>{
       node.querySelector("img").classList.add('loading');

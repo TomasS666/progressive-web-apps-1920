@@ -98,6 +98,10 @@ header form input:valid ~ button{
   background-color: #fff;
 }
 
+button{
+  cursor: pointer;
+}
+
 .page-control{
   display: inline-block;
 }
@@ -140,6 +144,7 @@ header form button{
   box-shadow: 0.1rem 0.1rem 0.4rem #121212;
   color: var(--white);
   position: relative;
+  max-width: 25rem;
 }
 
 article figure{
@@ -202,7 +207,7 @@ article img{
   width: 100%;
 }
 
-.wrapper .loading{
+.loading{
   height: calc(100% - 7rem);
 
   background: linear-gradient(to bottom right, #464646 40%, #FFF 50%, #464646 60%) #464646;
