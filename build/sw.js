@@ -1,6 +1,6 @@
 var serviceWorkerOption = {
   "assets": [
-    "/style.30d4335310824249dc04.css",
+    "/style.f4fa6f228a3144f59ca7.css",
     "/index.7031c8165184fb17379f.js"
   ]
 };

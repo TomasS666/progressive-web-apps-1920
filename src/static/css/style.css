@@ -390,6 +390,26 @@ footer{
   }
 }
 
+@media screen and (max-width: 26.5625em‬){
+  .overview-section h2{
+    padding: 0 1rem;
+    margin: .5rem 0;
+  }
+  .detail-section article figure figcaption {
+    padding: 2rem 0;
+  }
+
+  .wrapper article {
+    max-width: 75vw;
+  }
+
+  .wrapper article h3 {
+    color: var(--white);
+    font-size: 1rem;
+    padding: 1.5rem;
+  }
+}
+/* 
 @media screen and (max-width: 20em){
 
   .overview-section h2{
@@ -409,4 +429,4 @@ footer{
     font-size: 1rem;
     padding: 1.5rem;
   }
-}
+} */
