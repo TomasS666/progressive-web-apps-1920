@@ -4,6 +4,9 @@ This product uses the TMDb API but is not endorsed or certified by TMDb.
 
 ![WAFS - Movies](https://user-images.githubusercontent.com/49723502/74514641-4b9d7180-4f0d-11ea-894b-5f32e328dcfc.png)
 
+## Table of contents
+* [Description](#description)
+
 ## Questions for feedback 20-03-2020 (NL)
 1. Ik weet dat we het maandag over TTFB gaan hebben, maar ik was er zelf al mee bezig geweest.
 Ik ging kijken naar het verschil tussen de performance van een "at-runtime" gerenderde pagina en een statische pagina. Maar verder dan dat keek ik of er een verschil zou zitten in express sendFile() en het weghalen van de route en om te zorgen dat static map de overview.html zou pakken. 
@@ -80,8 +83,9 @@ Search results view
 * ~Less cascading functional code, more human readable code ( export functions in a covering parent object )~
 
 ## Known bugs
-* Layout breaks a bit sometimes on mobile. That's because of some design choices which I have to review right now.
-* Missing navigation
+* ~Layout breaks a bit sometimes on mobile. That's because of some design choices which I have to review right now.~ resolved almost completely
+* ~Missing navigation~ added at least a button to the overview page
+* Image reflow taking place on detail-page, due to a different HTML structure, aware of that.
 
 ## Future features
 I've gotten in to the shadow dom way too late, but better late than never. I was very eager to apply this system with actual webcomponents into my web-app, but due time I have to keep my hands of it and finish the foundation I've been working on.
@@ -113,6 +117,92 @@ webpack-dev-server: 3.9.0
 
 ### For a mapping of hashed assets
 webpack-manifest-plugin: 2.2.0
+
+
+
+## Proces
+
+### srcset
+Kom er uit, het werkt, maar sizes kunnen beter, begrijp dat nog niet helemaal
+
+Heb geprobeert webp te retrieven van tmdb, maar dat dat lijkt niet te kunnen, na veel zoeken. Webp gaat in moderne browsers efficiënter om met bandbreedte als het goed is.
+
+
+### Heb css en js geminified met webpack plugins,
+
+Html zou nog mooi zijn, build het al wel
+Check of het al geminified is
+
+Gzippen doe ik ook, ik serveer het alleen nog niet, kan ik nog even naar kijken
+
+
+### SW
+
+#### skipWaiting
+Sw self.skipwait lukt wel met button, maar niet met showNotifcation en de afhandeling daarvan, vermoedelijk omdat ik met de verkeerde sw communiceer.
+
+Als ux overweging kan ik misschien sws beter als popup of knop laten zien en als enhancement een notificatie als daar consent voor is gegeven.
+
+### Navigator share API
+Als navigator share, feature detection, show share knop die de native share api gebruikt van de os zodat je films kunt delen
+
+### Install before prompt PWA
+Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleerd heeft blijft de prompt triggeren als een gebruiker op de knop drukt op een detailpagina. 
+
+### Features in dept
+
+#### Genres
+Iets over async await van alle genres, wat ik heb gedaan, hoe Kris vond dat het beter kon, die aanpak pakte in mijn use case niet lekker uit en misschien was mijn oplossing dus wel geschikt, maar het zou wss beter kunnen
+
+#### Movie detail page
+
+#### Movie trailers
+Okay nice, a movie poster, the movie genres and a description. It's a start, but it's quite boring. I wanted more. The data is so rich, and I'm only displaying this? What's more cool than seeing a live action preview of the movie? A trailer? Cool let's do it. 
+
+And so I checked out the data and how to retrieve video material via the TMDB. Turns out they had me covered.
+
+#### Movie Collection
+Hoe films collectie erbij kwam kijken. Dat ik dat wilde laten doorlinken. Dat het uiteindelijk is gelukt. 
+
+#### Movie Cast
+Cast kwam nog om de hoek kijken. 
+
+#### Filter
+Hoe ik een mogelijke filter wilde toepassen maar dat niet meer is gelukt
+
+### Performance
+#### Lighthouse Audits
+Audit scores
+
+#### Other performance tools
+Hoe ik die andere performance website heb ingeschakeld. 
+
+SendFile vs laten vallen op static map, geen verschil uiteindelijk. 
+
+Content age in express, headers
+
+#### Critical rendering path
+
+### Heroku deployment pros and cons
+Heroku is a really nice tool for deploying your projects! Especially because you can run your Node.js project there for free. But of course being free, comes with it's limitations. Before I dive into some challenges, I want to give a shoutout to Heroku because without it I wouldn't have been able to deploy it right away, anyway.
+
+But no, when 
+
+Hoe Heroku fucked, dat ik niet de hobby dyno wilde want creditcard. 
+
+
+## Prerendering!
+Hoe ik de render functie heb aangepakt, hoe ik dat voor alles wilde maar dat Declan zei dat ik het al laat zien als ik de overzichtpagina prerender.
+Dat ik heb gekeken of ik het meer generiek kon maken. Wat mijn idee daarover was.
+
+### Webpack in combination with building my overview page
+At some point I got stuck. Webpack works perfectly, does exactly what I need, besides one thing. The order I want Webpack to run tasks in and how that clashes with my building tasks.
+
+See it like this, when my code is updated and I run the build command, Webpack gets every file I imported into my entry file (index.js) and puts them with according name and hash into my build folder, minified, compressed and well. Alongside with the build files an additional manifest.json file gets created to map the file references in my HTML to the newly created hashed files.
+
+But this way, I have to build my HTML afterwards in order to have the right references. So you can do a post-build proces right? Yes that's my current approach. But unfortunately I haven't found a way yet to do additions and alternation to my HTML after this with Webpack. So that's something to take away from me. There must be a way, I tried some things, but I don't have the time to get that fixed with the risk of doing things I might regret.
+
+
 
 ## License
 
