@@ -63,14 +63,14 @@ header nav ul li a:hover{
 }
 
 header form{
-  display: flex;
   flex-direction: row;
   align-items: unset;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  margin: 3rem auto;
+  margin: 2rem auto;
   max-width: 30rem;
+  padding: 1rem;
 }
 
 label{
@@ -314,11 +314,7 @@ footer{
   left: 0;
 }
 
-@media screen and (max-width: 20em){
-  .detail-section article figure figcaption {
-    padding: 2rem 0;
-  }
-}
+
 
 @media screen and (max-width: 83.375em){
 
@@ -364,6 +360,16 @@ footer{
     margin: 0 .75rem 0 0;
   }
 
+  .wrapper article:last-of-type{
+    margin: 0 0 0 .75rem;
+  }
+
+  .wrapper:last-of-type::after,
+  .wrapper:last-of-type::before{
+    content: "";
+    flex: 0 0 .75rem;
+  }
+
   .wrapper article:hover{
     transform: unset;
   }
@@ -384,3 +390,23 @@ footer{
   }
 }
 
+@media screen and (max-width: 20em){
+
+  .overview-section h2{
+    padding: 0 1rem;
+    margin: .5rem 0;
+  }
+  .detail-section article figure figcaption {
+    padding: 2rem 0;
+  }
+
+  .wrapper article {
+    max-width: 75vw;
+  }
+
+  .wrapper article h3 {
+    color: var(--white);
+    font-size: 1rem;
+    padding: 1.5rem;
+  }
+}

@@ -8,6 +8,9 @@ const WebpackPreBuildPlugin = require('pre-build-webpack');
 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   //   context: path.resolve(__dirname, 'src/static/js/'),
@@ -86,7 +89,15 @@ module.exports = {
       seed: {
         name: "My manifest mapping file"
       },
-    })
+    }),
+    new OptimizeCSSAssetsPlugin({
+      cssProcessorOptions: { discardComments: { removeAll: true } },
+      canPrint: true
+  }),
+  new CompressionPlugin({
+    filename: '[path].gz[query]',
+    algorithm: "gzip"
+})
 
   ],
 

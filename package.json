@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "testargs": "node src/static-generator/test.js",
-    "build": "webpack",
-    "postbuild":"node src/static-generator/render-overview.js",
+    "build": "webpack --mode production",
+    "postbuild": "node src/static-generator/render-overview.js",
     "start": "node src/server.js"
   },
   "dependencies": {
@@ -25,9 +25,11 @@
     "@babel/preset-env": "^7.9.0",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "compression-webpack-plugin": "^3.1.0",
     "css-loader": "^3.4.2",
     "file-loader": "^6.0.0",
     "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "pre-build-webpack": "^0.1.0",
     "serviceworker-webpack-plugin": "^1.0.1",
     "url-loader": "^4.0.0",

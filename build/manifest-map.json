@@ -1,14 +1,21 @@
 {
   "name": "My manifest mapping file",
-  "/index.css": "style.9ae4632828eea46afd8f.css",
-  "/index.js": "index.ce3c3b31b69dc6a8d55b.js",
+  "/index.css": "style.30d4335310824249dc04.css",
+  "/index.js": "index.7031c8165184fb17379f.js",
   "/images/icons-152.png": "images/icons-152.png",
   "/images/icons-192.png": "images/icons-192.png",
   "/images/no-image.svg": "images/no-image.svg",
+  "/images/no-image.svg.gz": "images/no-image.svg.gz",
   "/images/test.png": "images/test.png",
   "/images/the-movie-db-logo.cb5571ba.png": "images/the-movie-db-logo.cb5571ba.png",
+  "/index.7031c8165184fb17379f.js.gz": "index.7031c8165184fb17379f.js.gz",
   "/index.html": "index.html",
+  "/index.html.gz": "index.html.gz",
   "/manifest-webmanifest.json": "manifest-webmanifest.json",
+  "/manifest-webmanifest.json.gz": "manifest-webmanifest.json.gz",
   "/offline.html": "offline.html",
-  "/sw.js": "sw.js"
+  "/offline.html.gz": "offline.html.gz",
+  "/style.30d4335310824249dc04.css.gz": "style.30d4335310824249dc04.css.gz",
+  "/sw.js": "sw.js",
+  "/sw.js.gz": "sw.js.gz"
 }

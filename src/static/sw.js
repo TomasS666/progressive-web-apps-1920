@@ -40,7 +40,7 @@
       console.log("updating!!")
 
       
-        self.skipWaiting()
+        self.skipWaiting().catch(err => console.log(err))
       
       
 

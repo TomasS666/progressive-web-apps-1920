@@ -8,11 +8,13 @@ import '../index.html';
 
 import '../offline.html'
 
+// Audit thing 
 
 importAll(require.context('../images/', true, /\.(png|jp(e*)g|svg)$/));
 function importAll (r) {
   r.keys().forEach(r);
 }
+
 
 
 if(document.querySelector("article a img")){
