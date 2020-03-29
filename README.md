@@ -83,8 +83,9 @@ Search results view
 * ~Less cascading functional code, more human readable code ( export functions in a covering parent object )~
 
 ## Known bugs
-* Layout breaks a bit sometimes on mobile. That's because of some design choices which I have to review right now.
-* Missing navigation
+* ~Layout breaks a bit sometimes on mobile. That's because of some design choices which I have to review right now.~ resolved almost completely
+* ~Missing navigation~ added at least a button to the overview page
+* Image reflow taking place on detail-page, due to a different HTML structure, aware of that.
 
 ## Future features
 I've gotten in to the shadow dom way too late, but better late than never. I was very eager to apply this system with actual webcomponents into my web-app, but due time I have to keep my hands of it and finish the foundation I've been working on.
