@@ -53,7 +53,32 @@ I'm fetching data on the following endpoints:
 To get a list of movies of a certain genre:
 ```
 /discover/movie/with_genre={id}
+```
+
+Get movie by id:
+```
 /movie/{id}
+
+```
+
+Get movie and movies that belong to a collection if one exists
+```
+/collection/{id}
+```
+
+Get movie and retrieve appended credits / cast:
+```
+/movie/{id}/...../ &append_to_response=credits
+```
+
+Search for movies:
+```
+search/{query}
+```
+
+Videos:
+```
+/movies/{id}/videos
 ```
 
 ### Used data
@@ -141,10 +166,16 @@ Gzippen doe ik ook, ik serveer het alleen nog niet, kan ik nog even naar kijken
 #### skipWaiting
 Sw self.skipwait lukt wel met button, maar niet met showNotifcation en de afhandeling daarvan, vermoedelijk omdat ik met de verkeerde sw communiceer.
 
+![sw notification update](docs/note-works-update-doesntt.jpg)
+
 Als ux overweging kan ik misschien sws beter als popup of knop laten zien en als enhancement een notificatie als daar consent voor is gegeven.
 
 #### Navigator share API
 Als navigator share, feature detection, show share knop die de native share api gebruikt van de os zodat je films kunt delen
+
+<img src="docs/share-btn.jpg" width="300px">
+
+![share api oppertunity to share](docs/share-app.jpg)
 
 #### Install before prompt PWA
 Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleerd heeft blijft de prompt triggeren als een gebruiker op de knop drukt op een detailpagina. 
