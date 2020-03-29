@@ -45,23 +45,23 @@
             <section class="related">
                 <h2>Related movies:</h2>
                 <div class="wrapper">
-                <% collection.forEach(movie =>{ %>
-
+                <% collection.forEach(relMovie =>{ %>
+                    <% if(relMovie.id != movie.id){ %>
                     <article title="<%= movie.title %>">
                         <header>
-                            <h3><%= movie.title %></h3>
+                            <h3><%= relMovie.title %></h3>
                         </header>
                         <figure>
-                            <a href="/movie/<%= movie.id%>/<%= movie.title.replace(/\s+/g, '-').toLowerCase(); %>">
+                            <a href="/movie/<%= relMovie.id%>/<%= relMovie.title.replace(/\s+/g, '-').toLowerCase(); %>">
                             <img 
-                                src="<%= movie.poster_path %>"
-                                srcset="<%= movie.images %>"
-                                alt="<%= movie.title %>">
+                                src="<%= relMovie.poster_path %>"
+                                srcset="<%= relMovie.images %>"
+                                alt="<%= relMovie.title %>">
                             </a>
                         </figure>
                     </article>
 
-                <% }) %>
+                <% }}) %>
                 </div>
             </section>
         <% } %>
