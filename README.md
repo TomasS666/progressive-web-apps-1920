@@ -171,7 +171,12 @@ Now I also had a different important
 Iets over async await van alle genres, wat ik heb gedaan, hoe Kris vond dat het beter kon, die aanpak pakte in mijn use case niet lekker uit en misschien was mijn oplossing dus wel geschikt, maar het zou wss beter kunnen
 
 #### Search and results page
+Disabled because not filled and field is required:
 ![search bar](docs/ux-disabled-btn-and-required-field-details.png)
+
+Enabled because user entered something
+
+![enabled form](docs/ux-active-btn-and-required-field-details.png)
 
 ![image and results page](docs/results-page.png)
 
