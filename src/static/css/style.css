@@ -314,6 +314,14 @@ footer{
   left: 0;
 }
 
+.actor{
+  display: flex;
+  margin: 1.5rem 0;
+}
+
+.actor-info{
+  margin-left: 1rem;
+}
 
 
 @media screen and (max-width: 83.375em){
@@ -398,7 +406,7 @@ footer{
   }
 
   .wrapper article {
-    max-width: 75vw;
+    max-width: 70vw;
   }
 
   .wrapper article h3 {

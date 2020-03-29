@@ -1,6 +1,6 @@
 {
   "name": "My manifest mapping file",
-  "/index.css": "style.04cffca3fdac9b4b1cc6.css",
+  "/index.css": "style.382c802c20e6a2e007c9.css",
   "/index.js": "index.7031c8165184fb17379f.js",
   "/images/icons-152.png": "images/icons-152.png",
   "/images/icons-192.png": "images/icons-192.png",
@@ -15,7 +15,7 @@
   "/manifest-webmanifest.json.gz": "manifest-webmanifest.json.gz",
   "/offline.html": "offline.html",
   "/offline.html.gz": "offline.html.gz",
-  "/style.04cffca3fdac9b4b1cc6.css.gz": "style.04cffca3fdac9b4b1cc6.css.gz",
+  "/style.382c802c20e6a2e007c9.css.gz": "style.382c802c20e6a2e007c9.css.gz",
   "/sw.js": "sw.js",
   "/sw.js.gz": "sw.js.gz"
 }

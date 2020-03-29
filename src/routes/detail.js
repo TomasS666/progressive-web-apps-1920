@@ -9,9 +9,10 @@ const cleanData = require('../helpers/cleanData')
 router.get('/movie/:id/:title', (req, res)=>{
 
 async function getMovie(){
-   const movie = await getData(`movie/${req.params.id}`)
+   const movie = await getData(`movie/${req.params.id}`, '&append_to_response=credits')
    const videos = await getData(`movie/${req.params.id}/videos`)
 
+   console.log(movie)
    let collection = null;
    if(movie.belongs_to_collection){
         collection = await getData(`collection/${movie.belongs_to_collection.id}`)
