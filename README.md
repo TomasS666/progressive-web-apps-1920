@@ -147,36 +147,35 @@ webpack-manifest-plugin: 2.2.0
 
 ## Proces
 
-dat dat lijkt niet te kunnen, na veel zoeken. Webp gaat in moderne browsers efficiënter om met bandbreedte als het goed is.
 
 
-### Heb css en js geminified met webpack plugins,
 
-Html zou nog mooi zijn, build het al wel
-Check of het al geminified is
-
-Gzippen doe ik ook, ik serveer het alleen nog niet, kan ik nog even naar kijken
+### Minified CSS and JS with Webpack plugin
+With sever
+I GZIP builded files, but I'm not serving them yet. I found out you can do that with express and setting the right headers, but I'm gonna add that in my next iteration.
 
 
 ### SW and other enhancements
 
 #### skipWaiting
-Sw self.skipwait lukt wel met button, maar niet met showNotifcation en de afhandeling daarvan, vermoedelijk omdat ik met de verkeerde sw communiceer.
+Sw self.skipwait works with button, but not with showNotification and further handling of the notification. Presumably because I'm communicating to the wrong serviceWorker. For UX purposes a button / pop-up on update would be better anyway. Right now it almost works, but it's not there yet. I had it working but my final version still holds the popup. But I know the issue and I'm gonna fix it soon.
+
+Anyway, I'm using a plugin De
+
+maar niet met showNotifcation en de afhandeling daarvan, vermoedelijk omdat ik met de verkeerde sw communiceer.
 
 ![sw notification update](docs/note-works-update-doesntt.jpg)
 
-Als ux overweging kan ik misschien sws beter als popup of knop laten zien en als enhancement een notificatie als daar consent voor is gegeven.
+
 
 #### Navigator share API
-Als navigator share, feature detection, show share knop die de native share api gebruikt van de os zodat je films kunt delen
+With feature detection I check if navigator.share is available, when it is, I append thi
 
 <img src="docs/share-btn.jpg" width="300px">
 
 ![share api oppertunity to share](docs/share-app.jpg)
 
 #### Install before prompt PWA
-Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleerd heeft blijft de prompt triggeren als een gebruiker op de knop drukt op een detailpagina. 
-
 ![install app btn](docs/install-movie-btn.png)
 
 If the user clicks on that button, the install prompt for the PWA is triggered.
