@@ -5,10 +5,6 @@ const path = require("path");
 
 
 async function render(data){
-    // const template = fs.readFileSync(path.resolve(__dirname,'../views/detail-page.ejs'),  'utf-8')
-
-    // const template = fs.readFileSync('views/detail-page.ejs',  'utf-8')
-
     const parsedHTML = await ejs.renderFile( path.join(__dirname, '..', 'views/overview.ejs') , data )
         .then(html => writeHTML(data, html))
         
