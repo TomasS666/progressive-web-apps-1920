@@ -316,6 +316,10 @@ In my opion handling a lot of things server-side and or prerendering of pages ca
 Because Javascript is blocking and if your entire app is written in client-side Javascript, it's taking a lot of time and it's keeping the user waiting. That's why client-side Javascript should be used as an enhancement, and if really do want to use a Framework, consider using some sort of alternative in React or Vue or Angular which provides a way to fix this issue. But personally, I'm very proud of what I made during this course and I'm gonna improve it beyond this course because I want this to end up in my portfolio.
 By the way, a small note: I'm using defer on my client-side logic. This makes sure that the doc is first loaded, but the browser gets acces to the script before other actual content gets loaded in like images. This way, I'm not blocking my HTML, but I can still use my script to enable a loading state on images and remove it when the images individually complete.
 
+So in other words, when your app is fully depending on client-side Javascript, it blocks the first paint / view. Because everything needs to be calculated and everyhing needs to be injected, while If you let the JS wait, like for instance with defer. You see the HTML first and then slowly other parts are coming in. The fact that it's still loading is not bad. But it's good the user actually sees something instead of a white screen.
+
+#### Service workers
+
 
 ## License
 
