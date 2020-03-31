@@ -147,39 +147,35 @@ webpack-manifest-plugin: 2.2.0
 
 ## Proces
 
-#### What I've learned as a person / developer / designer
-Of course this course and the road you travel on is for learning new things. If I knew everything at the start, what would be left to learn? Fortunately I learned that you can develop and design endlessly. It never actually stops. But for this course alone we had an estimated 6 days to round up. Okay yes, I've had a few hours on the weekend as well. But to get to the point: at many points I'm eager to go on, to add new features, to improve etc. But with every additional feature comes exponential complexity, documentation etc. There's simply not enough time for everything. There never will be. So I've done my best, but I "laid down my arms", I stopped at the right time to round up my documentation and to finish my other course as well. Knowing that some parts required more attention, didn't get attention, could be improved, could be better, but are good for now, since I've learned so damn much, I draw my satisfaction from the learning experience.
-
-dat dat lijkt niet te kunnen, na veel zoeken. Webp gaat in moderne browsers efficiënter om met bandbreedte als het goed is.
 
 
-### Heb css en js geminified met webpack plugins,
 
-Html zou nog mooi zijn, build het al wel
-Check of het al geminified is
-
-Gzippen doe ik ook, ik serveer het alleen nog niet, kan ik nog even naar kijken
+### Minified CSS and JS with Webpack plugin
+With sever
+I GZIP builded files, but I'm not serving them yet. I found out you can do that with express and setting the right headers, but I'm gonna add that in my next iteration.
 
 
 ### SW and other enhancements
 
 #### skipWaiting
-Sw self.skipwait lukt wel met button, maar niet met showNotifcation en de afhandeling daarvan, vermoedelijk omdat ik met de verkeerde sw communiceer.
+Sw self.skipwait works with button, but not with showNotification and further handling of the notification. Presumably because I'm communicating to the wrong serviceWorker. For UX purposes a button / pop-up on update would be better anyway. Right now it almost works, but it's not there yet. I had it working but my final version still holds the popup. But I know the issue and I'm gonna fix it soon.
+
+Anyway, I'm using a plugin De
+
+maar niet met showNotifcation en de afhandeling daarvan, vermoedelijk omdat ik met de verkeerde sw communiceer.
 
 ![sw notification update](docs/note-works-update-doesntt.jpg)
 
-Als ux overweging kan ik misschien sws beter als popup of knop laten zien en als enhancement een notificatie als daar consent voor is gegeven.
+
 
 #### Navigator share API
-Als navigator share, feature detection, show share knop die de native share api gebruikt van de os zodat je films kunt delen
+With feature detection I check if navigator.share is available, when it is, I append thi
 
 <img src="docs/share-btn.jpg" width="300px">
 
 ![share api oppertunity to share](docs/share-app.jpg)
 
 #### Install before prompt PWA
-Installbeforeprompt, werkt lekker! Zolang de gebruiker de app niet geïnstalleerd heeft blijft de prompt triggeren als een gebruiker op de knop drukt op een detailpagina. 
-
 ![install app btn](docs/install-movie-btn.png)
 
 If the user clicks on that button, the install prompt for the PWA is triggered.
@@ -249,40 +245,89 @@ Hoe ik een mogelijke filter wilde toepassen maar dat niet meer is gelukt
 At some point it felt like there had to be more to the images I was retrieving. There must be a way to enhance them right? Or not? There was a lack of understanding here maybe. I thought, since I'm not serving the images from my own server / source, I must download them and write them away to my own server, do processing, alternation, webp, etc... to be able to improve performance. I thought since I didn't serve them, I couldn't influence perfomance. But then I got some resources from Declan about the srcset and sizes features.
 
 #### Srcset 
+Srcset is a feature you can use to set multiple image sources with different dimensions. The cool thing is, with a set of rules, your browser can decide which image is the best for the use case and it will ontry request that image and not the others.
 
 #### Sizes 
+Sizes is an addition to srcset. It can contain widths and even min-max media queries like in CSS. To keep it short, this is some sort of a helper where you define some rules like the queries to help the browser decide which image to chose. You take more control here. I wanted to use this, but I don't understand the core of it yet so I didnd't want to use it without knowing for sure what I was doing.
 
 #### How I implemented them
+Declan gave me the tip about the ability to retrieve a config file from TMDB which holds information about the available image sizes. Just out of the box. So I saved that locally so I can acces that and where I would usually assign a src path on the movie object to render it's detail page, I know have an operation in between which creates the long string in the end with the paths, witdh addional markup I need. Which I can then in turn assign to the srcset element. I did this in my detail-page.js route file instead of my template file because otherwise the templatefile would be bloated with that kinda logic. 
+
+Small snippet of a bigger function that creates the path: 
+
+```javascript
+   const imagesPaths = imgConfig.images.poster_sizes
+
+        .map((size, i) => {
+            i++
+
+            const width = size != "original" ?
+                `${ size.substring(1) }w` :
+                `${ 2000 }w`
+
+            return `https://image.tmdb.org/t/p/${size}/${movie.poster_path} ${width}`
+        }).join(", ")
+
+
+    movie.images = imagesPaths
+    movie.poster_path = `https://image.tmdb.org/t/p/w342/${movie.poster_path}`
+
+```
+
+The desired output:
+
+```HTML
+<img src="https://image.tmdb.org/t/p/w342//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg"
+     srcset="https://image.tmdb.org/t/p/w92//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 92w, https://image.tmdb.org/t/p/w154//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 154w, https://image.tmdb.org/t/p/w185//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 185w, https://image.tmdb.org/t/p/w342//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 342w, https://image.tmdb.org/t/p/w500//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 500w, https://image.tmdb.org/t/p/w780//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 780w" alt="Bloodshot">
+```
+
+#### Lighthouse Audits and other performance related things
+Search page is more heavy. Way more heavy. It's because the request to embed Youtube in my page. And because a lot of logic which is ran at runtime, meaning it has to calculate and do all those things when the user hits the route.
+
+![searhc](docs/performance/Search-page-way-heavier.png)
+
+
+Look at my prerendered page though: 
+
+![prerendered ttfb](docs/performance/direct-network-overview-page-ttfb-and-time.png)
+
+And that's without caching: The most time is in the image requests. I wanted to retrieve webp, because I understood that modern browsers can improve the use of bandwidth with this image format. But I couldn't find a way to get the images like that. Believe me, I searched.
+
+![and without caching](docs/performance/direct-network-overview-page-frames.png)
 
 
 
-Kom er uit, het werkt, maar sizes kunnen beter, begrijp dat nog niet helemaal
 
-Heb geprobeert webp te retrieven van tmdb, maar 
+#### Other performance tests
+I tested sendFile vs not a route at all / fallback to static folder. At first I thought
 
-#### Lighthouse Audits
-Audit scores
 
-#### Other performance tools
-Hoe ik die andere performance website heb ingeschakeld. 
-
-SendFile vs laten vallen op static map, geen verschil uiteindelijk. 
-
-Content age in express, headers
-
-#### Critical rendering path
 
 ### Heroku deployment pros and cons
 Heroku is a really nice tool for deploying your projects! Especially because you can run your Node.js project there for free. But of course being free, comes with it's limitations. Before I dive into some challenges, I want to give a shoutout to Heroku because without it I wouldn't have been able to deploy it right away, anyway.
 
-But no, when 
-
-Hoe Heroku fucked, dat ik niet de hobby dyno wilde want creditcard. 
-
-
 ## Prerendering!
-Hoe ik de render functie heb aangepakt, hoe ik dat voor alles wilde maar dat Declan zei dat ik het al laat zien als ik de overzichtpagina prerender.
-Dat ik heb gekeken of ik het meer generiek kon maken. Wat mijn idee daarover was.
+
+Part of prerendering my overview page:
+```javascript async function render(data){
+    const parsedHTML = await ejs.renderFile( path.join(__dirname, '..', 'views/overview.ejs') , data )
+        .then(html => writeHTML(data, html))
+        
+        return parsedHTML;
+
+}
+
+function writeHTML(data, html){
+    fs.writeFileSync(path.resolve(__dirname,`../../build/index.html`), html, 'utf8');
+}
+```
+
+
+Right now I'm only prerendering the overview page because I got feedback that doing it with 150.000 detail pages would be overkill.
+Most proud of this. It works like a charm.
+
+
+Wanted to make this more generic, but that's for the next time.
 
 ### Webpack in combination with building my overview page
 At some point I got stuck. Webpack works perfectly, does exactly what I need, besides one thing. The order I want Webpack to run tasks in and how that clashes with my building tasks.
@@ -291,6 +336,23 @@ See it like this, when my code is updated and I run the build command, Webpack g
 
 But this way, I have to build my HTML afterwards in order to have the right references. So you can do a post-build proces right? Yes that's my current approach. But unfortunately I haven't found a way yet to do additions and alternation to my HTML after this with Webpack. So that's something to take away from me. There must be a way, I tried some things, but I don't have the time to get that fixed with the risk of doing things I might regret.
 
+
+## Conclusion
+
+#### What I've learned as a person / developer / designer
+Of course this course and the road you travel on is for learning new things. If I knew everything at the start, what would be left to learn? Fortunately I learned that you can develop and design endlessly. It never actually stops. But for this course alone we had an estimated 6 days to round up. Okay yes, I've had a few hours on the weekend as well. But to get to the point: at many points I'm eager to go on, to add new features, to improve etc. But with every additional feature comes exponential complexity, documentation etc. There's simply not enough time for everything. There never will be. So I've done my best, but I "laid down my arms", I stopped at the right time to round up my documentation and to finish my other course as well. Knowing that some parts required more attention, didn't get attention, could be improved, could be better, but are good for now, since I've learned so damn much, I draw my satisfaction from the learning experience.
+
+#### Client-side / server-side
+In my opion handling a lot of things server-side and or prerendering of pages can boost your performance. You also let the browser handle the critical rendering path more. I went a step further by prerendering my overview page. It's a significant performance boost because nothing is faster than a static file. But to get back to client-side JS apps. They can have an appie experience, great. But it has a lot of downsides if your app is fully depending on clien-side JS.
+
+#### Critical rendering path
+Because Javascript is blocking and if your entire app is written in client-side Javascript, it's taking a lot of time and it's keeping the user waiting. That's why client-side Javascript should be used as an enhancement, and if really do want to use a Framework, consider using some sort of alternative in React or Vue or Angular which provides a way to fix this issue. But personally, I'm very proud of what I made during this course and I'm gonna improve it beyond this course because I want this to end up in my portfolio.
+By the way, a small note: I'm using defer on my client-side logic. This makes sure that the doc is first loaded, but the browser gets acces to the script before other actual content gets loaded in like images. This way, I'm not blocking my HTML, but I can still use my script to enable a loading state on images and remove it when the images individually complete.
+
+So in other words, when your app is fully depending on client-side Javascript, it blocks the first paint / view. Because everything needs to be calculated and everyhing needs to be injected, while If you let the JS wait, like for instance with defer. You see the HTML first and then slowly other parts are coming in. The fact that it's still loading is not bad. But it's good the user actually sees something instead of a white screen.
+
+#### Service workers
+Service workers are little helpers that can catch network requests. It's a thing that lives in your browser and you can use it to cache files / pages and other content when the user has been on the page with a working network. After that, when the user is offline for instance but also when he or she goes back to a previsited page which the service worker cached, you can script the SW in a way of intercepting that request, checking if it's cached and either sending back a locally cached version of it or actually get it from the server because it's not precached.
 
 
 ## License
