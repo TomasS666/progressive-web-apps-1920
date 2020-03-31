@@ -245,34 +245,24 @@ Hoe ik een mogelijke filter wilde toepassen maar dat niet meer is gelukt
 At some point it felt like there had to be more to the images I was retrieving. There must be a way to enhance them right? Or not? There was a lack of understanding here maybe. I thought, since I'm not serving the images from my own server / source, I must download them and write them away to my own server, do processing, alternation, webp, etc... to be able to improve performance. I thought since I didn't serve them, I couldn't influence perfomance. But then I got some resources from Declan about the srcset and sizes features.
 
 #### Srcset 
+Srcset is a feature you can use to set multiple image sources with different dimensions. The cool thing is, with a set of rules, your browser can decide which image is the best for the use case and it will ontry request that image and not the others.
 
 #### Sizes 
+Sizes is an addition to srcset. It can contain widths and even min-max media queries like in CSS. To keep it short, this is some sort of a helper where you define some rules like the queries to help the browser decide which image to chose. You take more control here. I wanted to use this, but I don't understand the core of it yet so I didnd't want to use it without knowing for sure what I was doing.
 
 #### How I implemented them
-
-
-
-Kom er uit, het werkt, maar sizes kunnen beter, begrijp dat nog niet helemaal
-
-Heb geprobeert webp te retrieven van tmdb, maar 
+I 
 
 #### Lighthouse Audits
-Audit scores
 
-#### Other performance tools
-Hoe ik die andere performance website heb ingeschakeld. 
 
-SendFile vs laten vallen op static map, geen verschil uiteindelijk. 
+#### Other performance tests
+I tested sendFile vs not a route at all / fallback to static folder. At first I thought
 
 Content age in express, headers
 
 ### Heroku deployment pros and cons
 Heroku is a really nice tool for deploying your projects! Especially because you can run your Node.js project there for free. But of course being free, comes with it's limitations. Before I dive into some challenges, I want to give a shoutout to Heroku because without it I wouldn't have been able to deploy it right away, anyway.
-
-But no, when 
-
-Hoe Heroku fucked, dat ik niet de hobby dyno wilde want creditcard. 
-
 
 ## Prerendering!
 Hoe ik de render functie heb aangepakt, hoe ik dat voor alles wilde maar dat Declan zei dat ik het al laat zien als ik de overzichtpagina prerender.
