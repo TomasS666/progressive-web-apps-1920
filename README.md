@@ -251,7 +251,35 @@ Srcset is a feature you can use to set multiple image sources with different dim
 Sizes is an addition to srcset. It can contain widths and even min-max media queries like in CSS. To keep it short, this is some sort of a helper where you define some rules like the queries to help the browser decide which image to chose. You take more control here. I wanted to use this, but I don't understand the core of it yet so I didnd't want to use it without knowing for sure what I was doing.
 
 #### How I implemented them
-I 
+Declan gave me the tip about the ability to retrieve a config file from TMDB which holds information about the available image sizes. Just out of the box. So I saved that locally so I can acces that and where I would usually assign a src path on the movie object to render it's detail page, I know have an operation in between which creates the long string in the end with the paths, witdh addional markup I need. Which I can then in turn assign to the srcset element. I did this in my detail-page.js route file instead of my template file because otherwise the templatefile would be bloated with that kinda logic. 
+
+Small snippet of a bigger function that creates the path: 
+
+```javascript
+   const imagesPaths = imgConfig.images.poster_sizes
+
+        .map((size, i) => {
+            i++
+
+            const width = size != "original" ?
+                `${ size.substring(1) }w` :
+                `${ 2000 }w`
+
+            return `https://image.tmdb.org/t/p/${size}/${movie.poster_path} ${width}`
+        }).join(", ")
+
+
+    movie.images = imagesPaths
+    movie.poster_path = `https://image.tmdb.org/t/p/w342/${movie.poster_path}`
+
+```
+
+The desired output:
+
+```HTML
+<img src="https://image.tmdb.org/t/p/w342//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg"
+     srcset="https://image.tmdb.org/t/p/w92//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 92w, https://image.tmdb.org/t/p/w154//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 154w, https://image.tmdb.org/t/p/w185//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 185w, https://image.tmdb.org/t/p/w342//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 342w, https://image.tmdb.org/t/p/w500//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 500w, https://image.tmdb.org/t/p/w780//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 780w" alt="Bloodshot">
+```
 
 #### Lighthouse Audits
 
