@@ -319,6 +319,7 @@ By the way, a small note: I'm using defer on my client-side logic. This makes su
 So in other words, when your app is fully depending on client-side Javascript, it blocks the first paint / view. Because everything needs to be calculated and everyhing needs to be injected, while If you let the JS wait, like for instance with defer. You see the HTML first and then slowly other parts are coming in. The fact that it's still loading is not bad. But it's good the user actually sees something instead of a white screen.
 
 #### Service workers
+Service workers are little helpers that can catch network requests. It's a thing that lives in your browser and you can use it to cache files / pages and other content when the user has been on the page with a working network. After that, when the user is offline for instance but also when he or she goes back to a previsited page which the service worker cached, you can script the SW in a way of intercepting that request, checking if it's cached and either sending back a locally cached version of it or actually get it from the server because it's not precached.
 
 
 ## License
