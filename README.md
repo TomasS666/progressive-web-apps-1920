@@ -43,7 +43,7 @@ This product uses the TMDb API but is not endorsed or certified by TMDb.
       - [Movie Collection](#movie-collection)
       - [Movie Cast](#movie-cast)
       - [Filter](#filter)
-    + [Performance](#performance)
+    + [Performance](#user-content-prerendering)
     + [Image optimization](#image-optimization)
       - [Srcset](#srcset)
       - [Sizes](#sizes)
