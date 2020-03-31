@@ -147,9 +147,6 @@ webpack-manifest-plugin: 2.2.0
 
 ## Proces
 
-#### What I've learned as a person / developer / designer
-Of course this course and the road you travel on is for learning new things. If I knew everything at the start, what would be left to learn? Fortunately I learned that you can develop and design endlessly. It never actually stops. But for this course alone we had an estimated 6 days to round up. Okay yes, I've had a few hours on the weekend as well. But to get to the point: at many points I'm eager to go on, to add new features, to improve etc. But with every additional feature comes exponential complexity, documentation etc. There's simply not enough time for everything. There never will be. So I've done my best, but I "laid down my arms", I stopped at the right time to round up my documentation and to finish my other course as well. Knowing that some parts required more attention, didn't get attention, could be improved, could be better, but are good for now, since I've learned so damn much, I draw my satisfaction from the learning experience.
-
 dat dat lijkt niet te kunnen, na veel zoeken. Webp gaat in moderne browsers efficiënter om met bandbreedte als het goed is.
 
 
@@ -270,8 +267,6 @@ SendFile vs laten vallen op static map, geen verschil uiteindelijk.
 
 Content age in express, headers
 
-#### Critical rendering path
-
 ### Heroku deployment pros and cons
 Heroku is a really nice tool for deploying your projects! Especially because you can run your Node.js project there for free. But of course being free, comes with it's limitations. Before I dive into some challenges, I want to give a shoutout to Heroku because without it I wouldn't have been able to deploy it right away, anyway.
 
@@ -291,6 +286,18 @@ See it like this, when my code is updated and I run the build command, Webpack g
 
 But this way, I have to build my HTML afterwards in order to have the right references. So you can do a post-build proces right? Yes that's my current approach. But unfortunately I haven't found a way yet to do additions and alternation to my HTML after this with Webpack. So that's something to take away from me. There must be a way, I tried some things, but I don't have the time to get that fixed with the risk of doing things I might regret.
 
+
+## Conclusion
+
+#### What I've learned as a person / developer / designer
+Of course this course and the road you travel on is for learning new things. If I knew everything at the start, what would be left to learn? Fortunately I learned that you can develop and design endlessly. It never actually stops. But for this course alone we had an estimated 6 days to round up. Okay yes, I've had a few hours on the weekend as well. But to get to the point: at many points I'm eager to go on, to add new features, to improve etc. But with every additional feature comes exponential complexity, documentation etc. There's simply not enough time for everything. There never will be. So I've done my best, but I "laid down my arms", I stopped at the right time to round up my documentation and to finish my other course as well. Knowing that some parts required more attention, didn't get attention, could be improved, could be better, but are good for now, since I've learned so damn much, I draw my satisfaction from the learning experience.
+
+#### Client-side / server-side
+In my opion handling a lot of things server-side and or prerendering of pages can boost your performance. You also let the browser handle the critical rendering path more. 
+
+#### Critical rendering path
+Because Javascript is blocking and if your entire app is written in client-side Javascript, it's taking a lot of time and it's keeping the user waiting. That's why client-side Javascript should be used as an enhancement, and if really do want to use a Framework, consider using some sort of alternative in React or Vue or Angular which provides a way to fix this issue. But personally, I'm very proud of what I made during this course and I'm gonna improve it beyond this course because I want this to end up in my portfolio.
+By the way, a small note: I'm using defer on my client-side logic. This makes sure that the doc is first loaded, but the browser gets acces to the script before other actual content gets loaded in like images. This way, I'm not blocking my HTML, but I can still use my script to enable a loading state on images and remove it when the images individually complete.
 
 
 ## License
