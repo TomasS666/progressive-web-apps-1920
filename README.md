@@ -281,18 +281,27 @@ The desired output:
      srcset="https://image.tmdb.org/t/p/w92//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 92w, https://image.tmdb.org/t/p/w154//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 154w, https://image.tmdb.org/t/p/w185//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 185w, https://image.tmdb.org/t/p/w342//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 342w, https://image.tmdb.org/t/p/w500//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 500w, https://image.tmdb.org/t/p/w780//8WUVHemHFH2ZIP6NWkwlHWsyrEL.jpg 780w" alt="Bloodshot">
 ```
 
-#### Lighthouse Audits
+#### Lighthouse Audits and other performance related things
 Search page is more heavy. Way more heavy. It's because the request to embed Youtube in my page. And because a lot of logic which is ran at runtime, meaning it has to calculate and do all those things when the user hits the route.
 
 ![searhc](docs/performance/Search-page-way-heavier.png)
+
+
 Look at my prerendered page though: 
 
 ![prerendered ttfb](docs/performance/direct-network-overview-page-ttfb-and-time.png)
 
+And that's without caching: The most time is in the image requests. I wanted to retrieve webp, because I understood that modern browsers can improve the use of bandwidth with this image format. But I couldn't find a way to get the images like that. Believe me, I searched.
+
+![and without caching](docs/performance/direct-network-overview-page-frames.png)
+
+
+
+
 #### Other performance tests
 I tested sendFile vs not a route at all / fallback to static folder. At first I thought
 
-Content age in express, headers
+
 
 ### Heroku deployment pros and cons
 Heroku is a really nice tool for deploying your projects! Especially because you can run your Node.js project there for free. But of course being free, comes with it's limitations. Before I dive into some challenges, I want to give a shoutout to Heroku because without it I wouldn't have been able to deploy it right away, anyway.
