@@ -282,7 +282,12 @@ The desired output:
 ```
 
 #### Lighthouse Audits
+Search page is more heavy. Way more heavy. It's because the request to embed Youtube in my page. And because a lot of logic which is ran at runtime, meaning it has to calculate and do all those things when the user hits the route.
 
+![searhc](docs/performance/Search-page-way-heavier.png)
+Look at my prerendered page though: 
+
+![prerendered ttfb](docs/performance/direct-network-overview-page-ttfb-and-time.png)
 
 #### Other performance tests
 I tested sendFile vs not a route at all / fallback to static folder. At first I thought
@@ -293,8 +298,27 @@ Content age in express, headers
 Heroku is a really nice tool for deploying your projects! Especially because you can run your Node.js project there for free. But of course being free, comes with it's limitations. Before I dive into some challenges, I want to give a shoutout to Heroku because without it I wouldn't have been able to deploy it right away, anyway.
 
 ## Prerendering!
-Hoe ik de render functie heb aangepakt, hoe ik dat voor alles wilde maar dat Declan zei dat ik het al laat zien als ik de overzichtpagina prerender.
-Dat ik heb gekeken of ik het meer generiek kon maken. Wat mijn idee daarover was.
+
+Part of prerendering my overview page:
+```javascript async function render(data){
+    const parsedHTML = await ejs.renderFile( path.join(__dirname, '..', 'views/overview.ejs') , data )
+        .then(html => writeHTML(data, html))
+        
+        return parsedHTML;
+
+}
+
+function writeHTML(data, html){
+    fs.writeFileSync(path.resolve(__dirname,`../../build/index.html`), html, 'utf8');
+}
+```
+
+
+Right now I'm only prerendering the overview page because I got feedback that doing it with 150.000 detail pages would be overkill.
+Most proud of this. It works like a charm.
+
+
+Wanted to make this more generic, but that's for the next time.
 
 ### Webpack in combination with building my overview page
 At some point I got stuck. Webpack works perfectly, does exactly what I need, besides one thing. The order I want Webpack to run tasks in and how that clashes with my building tasks.
