@@ -296,7 +296,15 @@ And that's without caching: The most time is in the image requests. I wanted to 
 ![and without caching](docs/performance/direct-network-overview-page-frames.png)
 
 
+Lighthouse audits on Heroku:
 
+Overview page:
+
+![overview](docs/performance/audit-pwa-overview.png)
+
+Detail page:
+
+![detail](docs/audit-pwa.png)
 
 #### Other performance tests
 I tested sendFile vs not a route at all / fallback to static folder. At first I thought
