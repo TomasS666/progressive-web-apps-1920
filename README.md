@@ -213,9 +213,6 @@ I GZIP builded files, but I'm not serving them yet. I found out you can do that 
 #### skipWaiting
 Sw self.skipwait works with button, but not with showNotification and further handling of the notification. Presumably because I'm communicating to the wrong serviceWorker. For UX purposes a button / pop-up on update would be better anyway. Right now it almost works, but it's not there yet. I had it working but my final version still holds the popup. But I know the issue and I'm gonna fix it soon.
 
-Anyway, I'm using a plugin De
-
-maar niet met showNotifcation en de afhandeling daarvan, vermoedelijk omdat ik met de verkeerde sw communiceer.
 
 ![sw notification update](docs/note-works-update-doesntt.jpg)
 
