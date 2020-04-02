@@ -251,7 +251,7 @@ Now I also had a different important
 ### Features in dept
 
 #### Genres
-Iets over async await van alle genres, wat ik heb gedaan, hoe Kris vond dat het beter kon, die aanpak pakte in mijn use case niet lekker uit en misschien was mijn oplossing dus wel geschikt, maar het zou wss beter kunnen
+I needed a way to get the genre data but add the actual genre name itself to an object. I found a way how, it might not be the most performant. Kris gave me another solution, I tried it but soon remembered why I took my own approach. For now I'm sticking with what I got because it works. Later on I'll go even more in depth into performance. 
 
 #### Search and results page
 Disabled because not filled and field is required:
@@ -279,15 +279,13 @@ And so I checked out the data and how to retrieve video material via the TMDB. T
 ![trailer of rambo](docs/getting%20the%20first%20trailer.png)
 
 #### Movie Collection
-Hoe films collectie erbij kwam kijken. Dat ik dat wilde laten doorlinken. Dat het uiteindelijk is gelukt. 
+Then I thought, in some cases, a collection exists. Would be cool to display them somewhere. And so I made a call to another endpoint to retrieve the data I wanted. And after that I wanted them to link to their according detail-pages. After that, a small bug came up. When I clicked on a related movie, the url would append to the current one. And thus it didn't link. With a small / before the link it resolved right away. My stupid mistake. 
 
 #### Movie Cast
-Cast kwam nog om de hoek kijken. 
+Then I wanted to enrich the page by adding a movie cast. A future idea is too make them link to movies related to the actor. 
 
 ![movie cast](docs/casting.png)
 
-#### Filter
-Hoe ik een mogelijke filter wilde toepassen maar dat niet meer is gelukt
 
 ### Performance
 
